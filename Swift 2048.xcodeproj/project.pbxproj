@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FF3A7A7C1A14E1185ADA463 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75F84ECFB84AC695671E7D /* libPods.a */; };
+		EB460E391A395CE300AC129E /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB460E381A395CE300AC129E /* GameModel.swift */; };
 		EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D211C1A380E98008DD09D /* AppDelegate.swift */; };
 		EB4D21221A380E98008DD09D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21201A380E98008DD09D /* Main.storyboard */; };
 		EB4D21241A380E98008DD09D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21231A380E98008DD09D /* Images.xcassets */; };
@@ -15,6 +17,8 @@
 		EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D213D1A380FB8008DD09D /* ViewController.swift */; };
 		EB4D21411A380FEA008DD09D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21401A380FEA008DD09D /* GridView.swift */; };
 		EB4D21431A38297E008DD09D /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21421A38297E008DD09D /* TileView.swift */; };
+		EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
+		EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9A59B71A3990F800655AD3 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F75F84ECFB84AC695671E7D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		741E69E42F694988BA40C710 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EB460E381A395CE300AC129E /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Model/GameModel.swift; sourceTree = "<group>"; };
 		EB4D21171A380E98008DD09D /* Swift 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift 2048.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4D211B1A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4D211C1A380E98008DD09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +47,9 @@
 		EB4D213D1A380FB8008DD09D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB4D21401A380FEA008DD09D /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = Views/GridView.swift; sourceTree = "<group>"; };
 		EB4D21421A38297E008DD09D /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = Views/TileView.swift; sourceTree = "<group>"; };
+		EB9A59B51A398DD200655AD3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		EB9A59B71A3990F800655AD3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EB9A59B91A3991C400655AD3 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */,
+				6FF3A7A7C1A14E1185ADA463 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +72,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FE2479B8B71477E87D30154 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB9A59B71A3990F800655AD3 /* QuartzCore.framework */,
+				3F75F84ECFB84AC695671E7D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB460E371A395CC100AC129E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB460E381A395CE300AC129E /* GameModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		EB4D210E1A380E98008DD09D = {
 			isa = PBXGroup;
 			children = (
 				EB4D21191A380E98008DD09D /* Swift 2048 */,
 				EB4D212F1A380E98008DD09D /* Swift 2048Tests */,
 				EB4D21181A380E98008DD09D /* Products */,
+				741E69E42F694988BA40C710 /* Pods.xcconfig */,
+				8FE2479B8B71477E87D30154 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,13 +112,15 @@
 		EB4D21191A380E98008DD09D /* Swift 2048 */ = {
 			isa = PBXGroup;
 			children = (
+				EB460E371A395CC100AC129E /* Model */,
 				EB4D213F1A380FC1008DD09D /* Views */,
 				EB4D213C1A380FB8008DD09D /* Controller */,
-				EB4D211C1A380E98008DD09D /* AppDelegate.swift */,
 				EB4D21201A380E98008DD09D /* Main.storyboard */,
 				EB4D21231A380E98008DD09D /* Images.xcassets */,
 				EB4D21251A380E98008DD09D /* LaunchScreen.xib */,
 				EB4D211A1A380E98008DD09D /* Supporting Files */,
+				EB9A59B91A3991C400655AD3 /* Bridging-Header.h */,
+				EB4D211C1A380E98008DD09D /* AppDelegate.swift */,
 			);
 			path = "Swift 2048";
 			sourceTree = "<group>";
@@ -121,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4D213D1A380FB8008DD09D /* ViewController.swift */,
+				EB9A59B51A398DD200655AD3 /* MenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB4D21361A380E98008DD09D /* Build configuration list for PBXNativeTarget "Swift 2048" */;
 			buildPhases = (
+				8922686800A24B17AE416EFF /* Check Pods Manifest.lock */,
 				EB4D21131A380E98008DD09D /* Sources */,
 				EB4D21141A380E98008DD09D /* Frameworks */,
 				EB4D21151A380E98008DD09D /* Resources */,
+				F57E2B78CBD941F4A8B15918 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,11 +265,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8922686800A24B17AE416EFF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F57E2B78CBD941F4A8B15918 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB4D21131A380E98008DD09D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB460E391A395CE300AC129E /* GameModel.swift in Sources */,
+				EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */,
 				EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */,
 				EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */,
 				EB4D21411A380FEA008DD09D /* GridView.swift in Sources */,
@@ -358,21 +429,25 @@
 		};
 		EB4D21371A380E98008DD09D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 741E69E42F694988BA40C710 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Swift 2048/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/$(PROJECT_NAME)/Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		EB4D21381A380E98008DD09D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 741E69E42F694988BA40C710 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Swift 2048/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/$(PROJECT_NAME)/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -429,6 +504,7 @@
 				EB4D21381A380E98008DD09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB4D21391A380E98008DD09D /* Build configuration list for PBXNativeTarget "Swift 2048Tests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +513,7 @@
 				EB4D213B1A380E98008DD09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

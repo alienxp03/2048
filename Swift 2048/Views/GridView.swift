@@ -12,26 +12,27 @@ let gridSize    = 4
 let startTiles  = 2
 
 class GridView: UIView {
+    var model: GameModel!
+    
     var columnWitdh:CGFloat!
-    var columnHeight:CGFloat            = 0.0
-    var tileMarginVertical:CGFloat      = 0.0
-    var tileMarginHorizontal:CGFloat    = 0.0
+    var columnHeight:CGFloat!
+    var tileMarginVertical:CGFloat!
+    var tileMarginHorizontal:CGFloat!
     
     // For animation
-    let tilePopStartScale: CGFloat      = 0.1
-    let tilePopMaxScale: CGFloat        = 1.1
-    let tilePopDelay: NSTimeInterval    = 0.05
-    let tileExpandTime: NSTimeInterval  = 0.18
-    let tileContractTime: NSTimeInterval = 0.08
+    let tilePopStartScale: CGFloat          = 0.1
+    let tilePopMaxScale: CGFloat            = 1.1
+    let tilePopDelay: NSTimeInterval        = 0.05
+    let tileExpandTime: NSTimeInterval      = 0.18
+    let tileContractTime: NSTimeInterval    = 0.08
     
     var gridArray: Array<Array<Any>>!
-    var noTile                          = NSNull()
-    
-    // keep the score
-    var score: NSInteger                = 0
+    var noTile                              = NSNull()
     
     // MARK: Required
     override func drawRect(rect: CGRect) {
+        model = GameModel.sharedInstance
+        
         setupBackground()
         
         gridArray = Array<Array<Any>>()
@@ -46,6 +47,7 @@ class GridView: UIView {
         
         spawnStartTiles()
         
+        // swipe gestures
         var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swipeLeft")
         swipeLeft.direction = .Left
         addGestureRecognizer(swipeLeft)
@@ -65,6 +67,9 @@ class GridView: UIView {
     
     // MARK: 
     
+    /*
+        Calculate and draw the main board background
+    */
     func setupBackground() {
         var tile = TileView()
         columnWitdh = tile.frame.size.width
@@ -73,15 +78,15 @@ class GridView: UIView {
         tileMarginHorizontal = (frame.size.width - (CGFloat(gridSize) * columnWitdh)) / (CGFloat(gridSize) + 1)
         tileMarginVertical = (frame.size.height - (CGFloat(gridSize) * columnWitdh)) / (CGFloat(gridSize) + 1)
         
-        var x = tileMarginHorizontal
-        var y = tileMarginVertical
+        var x:CGFloat = tileMarginHorizontal
+        var y:CGFloat = tileMarginVertical
         
         for var i = 0; i < gridSize; i++ {
             x = tileMarginHorizontal
             
             for var j = 0; j < gridSize; j++ {
                 var view = UIView(frame: CGRectMake(x, y, tile.frame.size.width, tile.frame.size.height))
-                view.backgroundColor = .grayColor()
+                view.backgroundColor = UIColor(red: 0.682, green: 0.855, blue: 0.851, alpha: 1)
                 addSubview(view)
                 x += columnWitdh + tileMarginHorizontal
             }
@@ -89,19 +94,26 @@ class GridView: UIView {
         }
     }
     
+    /*
+        Given a tile row and column position, get the tile position in the GridView
+    
+        @return Position of the tile
+    */
     func positionForColumn(column: NSInteger, row: NSInteger) -> CGPoint {
         let x = tileMarginHorizontal + CGFloat(column) * (tileMarginHorizontal + columnWitdh)
         let y = tileMarginVertical + CGFloat(row) * (tileMarginVertical + columnHeight)
         return CGPoint(x: x, y: y)
     }
     
+    /*
+        Add/create a tile at given position
+    */
     func addTileAtColumn(column: NSInteger, row: NSInteger) {
         var position = positionForColumn(column, row: row)
         var tile = TileView()
         tile.frame = CGRectMake(position.x, position.y, tile.frame.width, tile.frame.height)
         gridArray[column][row] = tile
         tile.layer.setAffineTransform(CGAffineTransformMakeScale(tilePopStartScale, tilePopStartScale))
-//        tile
         addSubview(tile)
         
         // Add to board
@@ -118,6 +130,9 @@ class GridView: UIView {
         })
     }
     
+    /*
+        Spawn a random tile at random position
+    */
     func spawnRandomTile() {
         var spawned = false
         while !spawned {
@@ -131,6 +146,9 @@ class GridView: UIView {
         }
     }
     
+    /*
+        Start to spawn tiles based on how many initial startTiles that we have declared
+    */
     func spawnStartTiles() {
         for var i = 0; i < startTiles; i++ {
             spawnRandomTile()
@@ -248,6 +266,9 @@ class GridView: UIView {
         }
     }
     
+    /*
+        CHeck if the given position is a valid index for our game board
+    */
     func indexValid(x: NSInteger, y: NSInteger) -> Bool {
         var indexValid = true
         indexValid &= x >= 0
@@ -262,18 +283,22 @@ class GridView: UIView {
         return indexValid
     }
     
+    /*
+        Move a tile to a new position
+    */
     func moveTile(tile: TileView, oldX: NSInteger, oldY: NSInteger, newX: NSInteger, newY: NSInteger) {
         gridArray[newX][newY] = gridArray[oldX][oldY]
         gridArray[oldX][oldY] = noTile
         let newPosition = self.positionForColumn(newX, row: newY)
-        
-//        println("pos \(newX) \(newY) \(oldX) \(oldY)")
         
         UIView.animateWithDuration(0.2, animations: {
             tile.frame = CGRectMake(newPosition.x, newPosition.y, tile.frame.width, tile.frame.height)
         })
     }
     
+    /*
+        Check if a given position is valid and unoccupied
+    */
     func indexValidAndUnoccupied(x: NSInteger, y: NSInteger) -> Bool {
         var indexValid = self.indexValid(x, y: y)
         if !indexValid {
@@ -283,11 +308,14 @@ class GridView: UIView {
         return unoccupied
     }
     
+    /*
+        Merge two tiles together. After merge, we remove one of the tile from the view
+    */
     func mergeTileAtIndex(x: NSInteger, y: NSInteger, otherTileX: NSInteger, otherTileY: NSInteger) {
         // update game data
         var mergedTile = gridArray[x][y] as TileView
         var otherTile = gridArray[otherTileX][otherTileY] as TileView
-        self.score += mergedTile.value + otherTile.value
+        model.score += mergedTile.value + otherTile.value
         otherTile.value *= 2
         otherTile.mergedThisRound = true
         gridArray[x][y] = noTile
@@ -305,6 +333,9 @@ class GridView: UIView {
         })
     }
     
+    /*
+        Start the next round, since the user already lost the game
+    */
     func nextRound() {
         spawnRandomTile()
         
@@ -323,6 +354,9 @@ class GridView: UIView {
         }
     }
     
+    /*
+        Check if user still have an possible. If there isn't one, it means game over
+    */
     func movePossible() -> Bool {
         for var i = 0; i < gridSize; i++ {
             for var j = 0; j < gridSize; j++ {
@@ -350,6 +384,9 @@ class GridView: UIView {
         return false
     }
     
+    /*
+        Get a tile for given index
+    */
     func tileForIndex(x: NSInteger, y: NSInteger) -> Any {
         if !indexValid(x, y: y) {
             return noTile
@@ -358,11 +395,14 @@ class GridView: UIView {
         }
     }
     
+    /*
+        End the game, update the scores
+    */
     func endGame() {
         var highScore = NSUserDefaults.standardUserDefaults().objectForKey("highScore") as? NSInteger
         
-        if score > highScore || highScore == nil {
-            highScore = score
+        if model.score > highScore || highScore == nil {
+            highScore = model.score
             NSUserDefaults.standardUserDefaults().setObject(highScore, forKey: "highScore")
             NSUserDefaults.standardUserDefaults().synchronize()
             
