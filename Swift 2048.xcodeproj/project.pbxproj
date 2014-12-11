@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D211C1A380E98008DD09D /* AppDelegate.swift */; };
-		EB4D211F1A380E98008DD09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D211E1A380E98008DD09D /* ViewController.swift */; };
 		EB4D21221A380E98008DD09D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21201A380E98008DD09D /* Main.storyboard */; };
 		EB4D21241A380E98008DD09D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21231A380E98008DD09D /* Images.xcassets */; };
 		EB4D21271A380E98008DD09D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21251A380E98008DD09D /* LaunchScreen.xib */; };
 		EB4D21331A380E98008DD09D /* Swift_2048Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21321A380E98008DD09D /* Swift_2048Tests.swift */; };
+		EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D213D1A380FB8008DD09D /* ViewController.swift */; };
+		EB4D21411A380FEA008DD09D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21401A380FEA008DD09D /* GridView.swift */; };
+		EB4D21431A38297E008DD09D /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21421A38297E008DD09D /* TileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		EB4D21171A380E98008DD09D /* Swift 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift 2048.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4D211B1A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4D211C1A380E98008DD09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB4D211E1A380E98008DD09D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB4D21211A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB4D21231A380E98008DD09D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB4D21261A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EB4D212C1A380E98008DD09D /* Swift 2048Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift 2048Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4D21311A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4D21321A380E98008DD09D /* Swift_2048Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_2048Tests.swift; sourceTree = "<group>"; };
+		EB4D213D1A380FB8008DD09D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB4D21401A380FEA008DD09D /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = Views/GridView.swift; sourceTree = "<group>"; };
+		EB4D21421A38297E008DD09D /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = Views/TileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,9 @@
 		EB4D21191A380E98008DD09D /* Swift 2048 */ = {
 			isa = PBXGroup;
 			children = (
+				EB4D213F1A380FC1008DD09D /* Views */,
+				EB4D213C1A380FB8008DD09D /* Controller */,
 				EB4D211C1A380E98008DD09D /* AppDelegate.swift */,
-				EB4D211E1A380E98008DD09D /* ViewController.swift */,
 				EB4D21201A380E98008DD09D /* Main.storyboard */,
 				EB4D21231A380E98008DD09D /* Images.xcassets */,
 				EB4D21251A380E98008DD09D /* LaunchScreen.xib */,
@@ -110,6 +115,23 @@
 				EB4D21311A380E98008DD09D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB4D213C1A380FB8008DD09D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EB4D213D1A380FB8008DD09D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EB4D213F1A380FC1008DD09D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB4D21401A380FEA008DD09D /* GridView.swift */,
+				EB4D21421A38297E008DD09D /* TileView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB4D211F1A380E98008DD09D /* ViewController.swift in Sources */,
+				EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */,
 				EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */,
+				EB4D21411A380FEA008DD09D /* GridView.swift in Sources */,
+				EB4D21431A38297E008DD09D /* TileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
