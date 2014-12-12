@@ -56,7 +56,7 @@ class MenuViewController: UIViewController {
                 }
             case "STEP MODE":
                 if IAPHelper.sharedInstance.isProductPurchased(skStepModeUnlockedIdentifier) {
-                    self.delegate!.changeGameMode(.TIME)
+                    self.delegate!.changeGameMode(.STEP)
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     let alertView = SIAlertView(title: "Unlock new mode!", andMessage: "Do you want to buy a new game mode?")

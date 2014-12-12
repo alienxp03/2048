@@ -205,7 +205,7 @@
                     <connections>
                         <outlet property="gameOverScore" destination="aEx-jc-PFY" id="q3G-Ur-YNM"/>
                         <outlet property="gameOverView" destination="wUC-U9-Aol" id="leE-gs-WzU"/>
-                        <outlet property="gridBoard" destination="FVq-0W-avh" id="iaP-uF-hkP"/>
+                        <outlet property="gridView" destination="FVq-0W-avh" id="FlN-lU-hSV"/>
                         <outlet property="highScore" destination="FAR-ah-BNV" id="cbi-Wm-yYV"/>
                         <outlet property="highScoreLabel" destination="Obl-hX-GBj" id="u85-I0-kEt"/>
                         <outlet property="modeDetails" destination="GGA-1n-s2r" id="V1H-y2-J4t"/>

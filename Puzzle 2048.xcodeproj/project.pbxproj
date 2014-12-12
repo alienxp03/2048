@@ -13,7 +13,6 @@
 		EB4D21221A380E98008DD09D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21201A380E98008DD09D /* Main.storyboard */; };
 		EB4D21241A380E98008DD09D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21231A380E98008DD09D /* Images.xcassets */; };
 		EB4D21271A380E98008DD09D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4D21251A380E98008DD09D /* LaunchScreen.xib */; };
-		EB4D21331A380E98008DD09D /* Swift_2048Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21321A380E98008DD09D /* Swift_2048Tests.swift */; };
 		EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D213D1A380FB8008DD09D /* ViewController.swift */; };
 		EB4D21411A380FEA008DD09D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21401A380FEA008DD09D /* GridView.swift */; };
 		EB4D21431A38297E008DD09D /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21421A38297E008DD09D /* TileView.swift */; };
@@ -22,16 +21,6 @@
 		EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
 		EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9A59B71A3990F800655AD3 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EB4D212D1A380E98008DD09D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB4D210F1A380E98008DD09D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB4D21161A380E98008DD09D;
-			remoteInfo = "Swift 2048";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3F75F84ECFB84AC695671E7D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,7 +32,6 @@
 		EB4D21211A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB4D21231A380E98008DD09D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB4D21261A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EB4D212C1A380E98008DD09D /* Puzzle 2048Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle 2048Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4D21311A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4D21321A380E98008DD09D /* Swift_2048Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_2048Tests.swift; sourceTree = "<group>"; };
 		EB4D213D1A380FB8008DD09D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +42,8 @@
 		EB9A59B51A398DD200655AD3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EB9A59B71A3990F800655AD3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EB9A59B91A3991C400655AD3 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		EBEF367D1A3B2BEF00E5BB63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBEF367E1A3B2BEF00E5BB63 /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,13 +54,6 @@
 				EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */,
 				EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */,
 				6FF3A7A7C1A14E1185ADA463 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB4D21291A380E98008DD09D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +83,7 @@
 			children = (
 				EB4D21191A380E98008DD09D /* Swift 2048 */,
 				EB4D212F1A380E98008DD09D /* Swift 2048Tests */,
+				EBEF367B1A3B2BEF00E5BB63 /* Puzzle 2048 Tests */,
 				EB4D21181A380E98008DD09D /* Products */,
 				741E69E42F694988BA40C710 /* Pods.xcconfig */,
 				8FE2479B8B71477E87D30154 /* Frameworks */,
@@ -110,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				EB4D21171A380E98008DD09D /* Puzzle 2048.app */,
-				EB4D212C1A380E98008DD09D /* Puzzle 2048Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +158,23 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		EBEF367B1A3B2BEF00E5BB63 /* Puzzle 2048 Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF367E1A3B2BEF00E5BB63 /* Puzzle_2048_Tests.swift */,
+				EBEF367C1A3B2BEF00E5BB63 /* Supporting Files */,
+			);
+			path = "Puzzle 2048 Tests";
+			sourceTree = "<group>";
+		};
+		EBEF367C1A3B2BEF00E5BB63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF367D1A3B2BEF00E5BB63 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,24 +197,6 @@
 			productReference = EB4D21171A380E98008DD09D /* Puzzle 2048.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EB4D212B1A380E98008DD09D /* Puzzle 2048Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EB4D21391A380E98008DD09D /* Build configuration list for PBXNativeTarget "Puzzle 2048Tests" */;
-			buildPhases = (
-				EB4D21281A380E98008DD09D /* Sources */,
-				EB4D21291A380E98008DD09D /* Frameworks */,
-				EB4D212A1A380E98008DD09D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EB4D212E1A380E98008DD09D /* PBXTargetDependency */,
-			);
-			name = "Puzzle 2048Tests";
-			productName = "Swift 2048Tests";
-			productReference = EB4D212C1A380E98008DD09D /* Puzzle 2048Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,10 +209,6 @@
 					EB4D21161A380E98008DD09D = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 62H3MNSVEL;
-					};
-					EB4D212B1A380E98008DD09D = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = EB4D21161A380E98008DD09D;
 					};
 				};
 			};
@@ -248,7 +226,6 @@
 			projectRoot = "";
 			targets = (
 				EB4D21161A380E98008DD09D /* Puzzle 2048 */,
-				EB4D212B1A380E98008DD09D /* Puzzle 2048Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -261,13 +238,6 @@
 				EB4D21221A380E98008DD09D /* Main.storyboard in Resources */,
 				EB4D21271A380E98008DD09D /* LaunchScreen.xib in Resources */,
 				EB4D21241A380E98008DD09D /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB4D212A1A380E98008DD09D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,23 +291,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB4D21281A380E98008DD09D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB4D21331A380E98008DD09D /* Swift_2048Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EB4D212E1A380E98008DD09D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB4D21161A380E98008DD09D /* Puzzle 2048 */;
-			targetProxy = EB4D212D1A380E98008DD09D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EB4D21201A380E98008DD09D /* Main.storyboard */ = {
@@ -466,40 +420,6 @@
 			};
 			name = Release;
 		};
-		EB4D213A1A380E98008DD09D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Swift 2048Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "Puzzle 2048Tests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift 2048.app/Swift 2048";
-			};
-			name = Debug;
-		};
-		EB4D213B1A380E98008DD09D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Swift 2048Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "Puzzle 2048Tests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift 2048.app/Swift 2048";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -517,15 +437,6 @@
 			buildConfigurations = (
 				EB4D21371A380E98008DD09D /* Debug */,
 				EB4D21381A380E98008DD09D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EB4D21391A380E98008DD09D /* Build configuration list for PBXNativeTarget "Puzzle 2048Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB4D213A1A380E98008DD09D /* Debug */,
-				EB4D213B1A380E98008DD09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -11,7 +11,6 @@ import StoreKit
 
 let skTimeModeUnlockedIdentifier = "com.alienxp03.puzzle2048.timemode"
 let skStepModeUnlockedIdentifier = "com.alienxp03.puzzle2048.stepmode"
-let skStepMoved                  = "StepMoved"
 
 typealias RequestProductsCompletionHandler = (success: Bool, products: [SKProduct]?) -> Void
 

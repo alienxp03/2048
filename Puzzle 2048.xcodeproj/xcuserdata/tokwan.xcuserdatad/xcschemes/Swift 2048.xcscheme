@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Puzzle 2048.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EBEF36791A3B2BEF00E5BB63"
+               BuildableName = "Puzzle 2048 Tests.xctest"
+               BlueprintName = "Puzzle 2048 Tests"
+               ReferencedContainer = "container:Puzzle 2048.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "EB4D212B1A380E98008DD09D"
                BuildableName = "Puzzle 2048Tests.xctest"
                BlueprintName = "Puzzle 2048Tests"
+               ReferencedContainer = "container:Puzzle 2048.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EBEF36791A3B2BEF00E5BB63"
+               BuildableName = "Puzzle 2048 Tests.xctest"
+               BlueprintName = "Puzzle 2048 Tests"
                ReferencedContainer = "container:Puzzle 2048.xcodeproj">
             </BuildableReference>
          </TestableReference>
