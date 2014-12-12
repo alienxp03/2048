@@ -1,18 +1,18 @@
 //
-//  Swift_2048Tests.swift
-//  Swift 2048Tests
+//  GameModelTests.swift
+//  Puzzle 2048
 //
-//  Created by tokwan on 10/12/2014.
+//  Created by tokwan on 13/12/2014.
 //  Copyright (c) 2014 alienxp03. All rights reserved.
 //
 
-import UIKit
 import XCTest
 
-class Swift_2048Tests: XCTestCase {
+class GameModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        println("test")
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

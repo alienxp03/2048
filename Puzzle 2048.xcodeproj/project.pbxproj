@@ -20,7 +20,19 @@
 		EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7299EF1A39EE100025B37F /* StoreKit.framework */; };
 		EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
 		EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9A59B71A3990F800655AD3 /* QuartzCore.framework */; };
+		EBEF368E1A3B821100E5BB63 /* Puzzle_2048_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF368D1A3B821100E5BB63 /* Puzzle_2048_Tests.swift */; };
+		EBEF36991A3B85CD00E5BB63 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF36961A3B83F000E5BB63 /* GameModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBEF368F1A3B821100E5BB63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB4D210F1A380E98008DD09D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB4D21161A380E98008DD09D;
+			remoteInfo = "Puzzle 2048";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3F75F84ECFB84AC695671E7D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +45,7 @@
 		EB4D21231A380E98008DD09D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB4D21261A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EB4D21311A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB4D21321A380E98008DD09D /* Swift_2048Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_2048Tests.swift; sourceTree = "<group>"; };
+		EB4D21321A380E98008DD09D /* Puzzle_2048Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048Tests.swift; sourceTree = "<group>"; };
 		EB4D213D1A380FB8008DD09D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB4D21401A380FEA008DD09D /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = Views/GridView.swift; sourceTree = "<group>"; };
 		EB4D21421A38297E008DD09D /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = Views/TileView.swift; sourceTree = "<group>"; };
@@ -44,6 +56,10 @@
 		EB9A59B91A3991C400655AD3 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		EBEF367D1A3B2BEF00E5BB63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBEF367E1A3B2BEF00E5BB63 /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
+		EBEF36891A3B821000E5BB63 /* Puzzle 2048 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle 2048 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBEF368C1A3B821100E5BB63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBEF368D1A3B821100E5BB63 /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
+		EBEF36961A3B83F000E5BB63 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,13 @@
 				EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */,
 				EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */,
 				6FF3A7A7C1A14E1185ADA463 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBEF36861A3B821000E5BB63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,9 +104,10 @@
 		EB4D210E1A380E98008DD09D = {
 			isa = PBXGroup;
 			children = (
-				EB4D21191A380E98008DD09D /* Swift 2048 */,
-				EB4D212F1A380E98008DD09D /* Swift 2048Tests */,
+				EB4D21191A380E98008DD09D /* Puzzle 2048 */,
+				EB4D212F1A380E98008DD09D /* Puzzle 2048Tests */,
 				EBEF367B1A3B2BEF00E5BB63 /* Puzzle 2048 Tests */,
+				EBEF368A1A3B821100E5BB63 /* Puzzle 2048 Tests */,
 				EB4D21181A380E98008DD09D /* Products */,
 				741E69E42F694988BA40C710 /* Pods.xcconfig */,
 				8FE2479B8B71477E87D30154 /* Frameworks */,
@@ -94,11 +118,12 @@
 			isa = PBXGroup;
 			children = (
 				EB4D21171A380E98008DD09D /* Puzzle 2048.app */,
+				EBEF36891A3B821000E5BB63 /* Puzzle 2048 Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EB4D21191A380E98008DD09D /* Swift 2048 */ = {
+		EB4D21191A380E98008DD09D /* Puzzle 2048 */ = {
 			isa = PBXGroup;
 			children = (
 				EB460E371A395CC100AC129E /* Model */,
@@ -111,6 +136,7 @@
 				EB9A59B91A3991C400655AD3 /* Bridging-Header.h */,
 				EB4D211C1A380E98008DD09D /* AppDelegate.swift */,
 			);
+			name = "Puzzle 2048";
 			path = "Swift 2048";
 			sourceTree = "<group>";
 		};
@@ -122,12 +148,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EB4D212F1A380E98008DD09D /* Swift 2048Tests */ = {
+		EB4D212F1A380E98008DD09D /* Puzzle 2048Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EB4D21321A380E98008DD09D /* Swift_2048Tests.swift */,
+				EBEF36961A3B83F000E5BB63 /* GameModelTests.swift */,
+				EB4D21321A380E98008DD09D /* Puzzle_2048Tests.swift */,
 				EB4D21301A380E98008DD09D /* Supporting Files */,
 			);
+			name = "Puzzle 2048Tests";
 			path = "Swift 2048Tests";
 			sourceTree = "<group>";
 		};
@@ -175,6 +203,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EBEF368A1A3B821100E5BB63 /* Puzzle 2048 Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF368D1A3B821100E5BB63 /* Puzzle_2048_Tests.swift */,
+				EBEF368B1A3B821100E5BB63 /* Supporting Files */,
+			);
+			path = "Puzzle 2048 Tests";
+			sourceTree = "<group>";
+		};
+		EBEF368B1A3B821100E5BB63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF368C1A3B821100E5BB63 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,6 +242,24 @@
 			productReference = EB4D21171A380E98008DD09D /* Puzzle 2048.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EBEF36881A3B821000E5BB63 /* Puzzle 2048 Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBEF36911A3B821100E5BB63 /* Build configuration list for PBXNativeTarget "Puzzle 2048 Tests" */;
+			buildPhases = (
+				EBEF36851A3B821000E5BB63 /* Sources */,
+				EBEF36861A3B821000E5BB63 /* Frameworks */,
+				EBEF36871A3B821000E5BB63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBEF36901A3B821100E5BB63 /* PBXTargetDependency */,
+			);
+			name = "Puzzle 2048 Tests";
+			productName = "Puzzle 2048 Tests";
+			productReference = EBEF36891A3B821000E5BB63 /* Puzzle 2048 Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -209,6 +272,10 @@
 					EB4D21161A380E98008DD09D = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 62H3MNSVEL;
+					};
+					EBEF36881A3B821000E5BB63 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = EB4D21161A380E98008DD09D;
 					};
 				};
 			};
@@ -226,6 +293,7 @@
 			projectRoot = "";
 			targets = (
 				EB4D21161A380E98008DD09D /* Puzzle 2048 */,
+				EBEF36881A3B821000E5BB63 /* Puzzle 2048 Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,6 +306,13 @@
 				EB4D21221A380E98008DD09D /* Main.storyboard in Resources */,
 				EB4D21271A380E98008DD09D /* LaunchScreen.xib in Resources */,
 				EB4D21241A380E98008DD09D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBEF36871A3B821000E5BB63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +366,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EBEF36851A3B821000E5BB63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBEF36991A3B85CD00E5BB63 /* GameModelTests.swift in Sources */,
+				EBEF368E1A3B821100E5BB63 /* Puzzle_2048_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBEF36901A3B821100E5BB63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB4D21161A380E98008DD09D /* Puzzle 2048 */;
+			targetProxy = EBEF368F1A3B821100E5BB63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EB4D21201A380E98008DD09D /* Main.storyboard */ = {
@@ -420,6 +512,40 @@
 			};
 			name = Release;
 		};
+		EBEF36921A3B821100E5BB63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Puzzle 2048 Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Puzzle 2048.app/Puzzle 2048";
+			};
+			name = Debug;
+		};
+		EBEF36931A3B821100E5BB63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Puzzle 2048 Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Puzzle 2048.app/Puzzle 2048";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -440,6 +566,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		EBEF36911A3B821100E5BB63 /* Build configuration list for PBXNativeTarget "Puzzle 2048 Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBEF36921A3B821100E5BB63 /* Debug */,
+				EBEF36931A3B821100E5BB63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

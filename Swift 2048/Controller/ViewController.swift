@@ -176,7 +176,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
     }
     
     @IBAction func shareScore(sender: AnyObject) {
-        let shareText = "I'm playing 2048! My score is \(score.text!)"
+        let shareText = "I'm playing 2048! I've got \(score.text!)"
         
         let shareSheet = UIActivityViewController(activityItems: [shareText, gameOverScreenshot], applicationActivities: nil)
         self.presentViewController(shareSheet, animated: true, completion: nil)
