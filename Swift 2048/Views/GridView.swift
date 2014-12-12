@@ -262,6 +262,7 @@ class GridView: UIView {
         }
         
         if movedTilesThisRound {
+            NSNotificationCenter.defaultCenter().postNotificationName(skStepMoved, object: nil)
             nextRound()
         }
     }
@@ -327,6 +328,7 @@ class GridView: UIView {
         UIView.animateWithDuration(0.2, animations: {
                 otherTile.frame = CGRectMake(otherTilePosition.x, otherTilePosition.y, otherTile.frame.width, otherTile.frame.height)
                 otherTile.updateValueDisplay()
+
             }, completion: {
             (value: Bool) in
                 mergedTile.removeFromSuperview()

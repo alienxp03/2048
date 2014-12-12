@@ -17,6 +17,8 @@
 		EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D213D1A380FB8008DD09D /* ViewController.swift */; };
 		EB4D21411A380FEA008DD09D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21401A380FEA008DD09D /* GridView.swift */; };
 		EB4D21431A38297E008DD09D /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21421A38297E008DD09D /* TileView.swift */; };
+		EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7299F11A39EE420025B37F /* IAPHelper.swift */; };
+		EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7299EF1A39EE100025B37F /* StoreKit.framework */; };
 		EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
 		EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9A59B71A3990F800655AD3 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -35,18 +37,20 @@
 		3F75F84ECFB84AC695671E7D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		741E69E42F694988BA40C710 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EB460E381A395CE300AC129E /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Model/GameModel.swift; sourceTree = "<group>"; };
-		EB4D21171A380E98008DD09D /* Swift 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift 2048.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4D21171A380E98008DD09D /* Puzzle 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle 2048.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4D211B1A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4D211C1A380E98008DD09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB4D21211A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB4D21231A380E98008DD09D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB4D21261A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EB4D212C1A380E98008DD09D /* Swift 2048Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift 2048Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4D212C1A380E98008DD09D /* Puzzle 2048Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle 2048Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4D21311A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4D21321A380E98008DD09D /* Swift_2048Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_2048Tests.swift; sourceTree = "<group>"; };
 		EB4D213D1A380FB8008DD09D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB4D21401A380FEA008DD09D /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = Views/GridView.swift; sourceTree = "<group>"; };
 		EB4D21421A38297E008DD09D /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = Views/TileView.swift; sourceTree = "<group>"; };
+		EB7299EF1A39EE100025B37F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EB7299F11A39EE420025B37F /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		EB9A59B51A398DD200655AD3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EB9A59B71A3990F800655AD3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EB9A59B91A3991C400655AD3 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */,
 				EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */,
 				6FF3A7A7C1A14E1185ADA463 /* libPods.a in Frameworks */,
 			);
@@ -75,6 +80,7 @@
 		8FE2479B8B71477E87D30154 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB7299EF1A39EE100025B37F /* StoreKit.framework */,
 				EB9A59B71A3990F800655AD3 /* QuartzCore.framework */,
 				3F75F84ECFB84AC695671E7D /* libPods.a */,
 			);
@@ -103,8 +109,8 @@
 		EB4D21181A380E98008DD09D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB4D21171A380E98008DD09D /* Swift 2048.app */,
-				EB4D212C1A380E98008DD09D /* Swift 2048Tests.xctest */,
+				EB4D21171A380E98008DD09D /* Puzzle 2048.app */,
+				EB4D212C1A380E98008DD09D /* Puzzle 2048Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 			children = (
 				EB4D213D1A380FB8008DD09D /* ViewController.swift */,
 				EB9A59B51A398DD200655AD3 /* MenuViewController.swift */,
+				EB7299F11A39EE420025B37F /* IAPHelper.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,9 +178,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EB4D21161A380E98008DD09D /* Swift 2048 */ = {
+		EB4D21161A380E98008DD09D /* Puzzle 2048 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB4D21361A380E98008DD09D /* Build configuration list for PBXNativeTarget "Swift 2048" */;
+			buildConfigurationList = EB4D21361A380E98008DD09D /* Build configuration list for PBXNativeTarget "Puzzle 2048" */;
 			buildPhases = (
 				8922686800A24B17AE416EFF /* Check Pods Manifest.lock */,
 				EB4D21131A380E98008DD09D /* Sources */,
@@ -185,14 +192,14 @@
 			);
 			dependencies = (
 			);
-			name = "Swift 2048";
+			name = "Puzzle 2048";
 			productName = "Swift 2048";
-			productReference = EB4D21171A380E98008DD09D /* Swift 2048.app */;
+			productReference = EB4D21171A380E98008DD09D /* Puzzle 2048.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EB4D212B1A380E98008DD09D /* Swift 2048Tests */ = {
+		EB4D212B1A380E98008DD09D /* Puzzle 2048Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB4D21391A380E98008DD09D /* Build configuration list for PBXNativeTarget "Swift 2048Tests" */;
+			buildConfigurationList = EB4D21391A380E98008DD09D /* Build configuration list for PBXNativeTarget "Puzzle 2048Tests" */;
 			buildPhases = (
 				EB4D21281A380E98008DD09D /* Sources */,
 				EB4D21291A380E98008DD09D /* Frameworks */,
@@ -203,9 +210,9 @@
 			dependencies = (
 				EB4D212E1A380E98008DD09D /* PBXTargetDependency */,
 			);
-			name = "Swift 2048Tests";
+			name = "Puzzle 2048Tests";
 			productName = "Swift 2048Tests";
-			productReference = EB4D212C1A380E98008DD09D /* Swift 2048Tests.xctest */;
+			productReference = EB4D212C1A380E98008DD09D /* Puzzle 2048Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -219,6 +226,7 @@
 				TargetAttributes = {
 					EB4D21161A380E98008DD09D = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 62H3MNSVEL;
 					};
 					EB4D212B1A380E98008DD09D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -226,7 +234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EB4D21121A380E98008DD09D /* Build configuration list for PBXProject "Swift 2048" */;
+			buildConfigurationList = EB4D21121A380E98008DD09D /* Build configuration list for PBXProject "Puzzle 2048" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -239,8 +247,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EB4D21161A380E98008DD09D /* Swift 2048 */,
-				EB4D212B1A380E98008DD09D /* Swift 2048Tests */,
+				EB4D21161A380E98008DD09D /* Puzzle 2048 */,
+				EB4D212B1A380E98008DD09D /* Puzzle 2048Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -308,6 +316,7 @@
 				EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */,
 				EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */,
 				EB4D21411A380FEA008DD09D /* GridView.swift in Sources */,
+				EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */,
 				EB4D21431A38297E008DD09D /* TileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +334,7 @@
 /* Begin PBXTargetDependency section */
 		EB4D212E1A380E98008DD09D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EB4D21161A380E98008DD09D /* Swift 2048 */;
+			target = EB4D21161A380E98008DD09D /* Puzzle 2048 */;
 			targetProxy = EB4D212D1A380E98008DD09D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -432,10 +441,13 @@
 			baseConfigurationReference = 741E69E42F694988BA40C710 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Swift 2048/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/$(PROJECT_NAME)/Bridging-Header.h";
+				PRODUCT_NAME = "Puzzle 2048";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Swift 2048/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -444,10 +456,13 @@
 			baseConfigurationReference = 741E69E42F694988BA40C710 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Swift 2048/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/$(PROJECT_NAME)/Bridging-Header.h";
+				PRODUCT_NAME = "Puzzle 2048";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Swift 2048/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -465,7 +480,7 @@
 				);
 				INFOPLIST_FILE = "Swift 2048Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Puzzle 2048Tests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift 2048.app/Swift 2048";
 			};
 			name = Debug;
@@ -480,7 +495,7 @@
 				);
 				INFOPLIST_FILE = "Swift 2048Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Puzzle 2048Tests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift 2048.app/Swift 2048";
 			};
 			name = Release;
@@ -488,7 +503,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EB4D21121A380E98008DD09D /* Build configuration list for PBXProject "Swift 2048" */ = {
+		EB4D21121A380E98008DD09D /* Build configuration list for PBXProject "Puzzle 2048" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB4D21341A380E98008DD09D /* Debug */,
@@ -497,7 +512,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB4D21361A380E98008DD09D /* Build configuration list for PBXNativeTarget "Swift 2048" */ = {
+		EB4D21361A380E98008DD09D /* Build configuration list for PBXNativeTarget "Puzzle 2048" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB4D21371A380E98008DD09D /* Debug */,
@@ -506,7 +521,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB4D21391A380E98008DD09D /* Build configuration list for PBXNativeTarget "Swift 2048Tests" */ = {
+		EB4D21391A380E98008DD09D /* Build configuration list for PBXNativeTarget "Puzzle 2048Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB4D213A1A380E98008DD09D /* Debug */,

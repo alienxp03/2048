@@ -8,14 +8,17 @@
 
 import UIKit
 
+let kStepModeNotification = "kStepModeNotification"
+
 enum GameModeType {
-    case CLASSIC, TIME
+    case CLASSIC, TIME, STEP
 }
 
 class GameModel {
     var score = 0
-    var mode: GameModeType = .CLASSIC
-    var maxCountdownTime = 5
+    var gameMode: GameModeType  = .CLASSIC
+    let maxCountdownTime        = 10
+    let maxSteps                = 10
     
     class var sharedInstance: GameModel {
         struct Static {

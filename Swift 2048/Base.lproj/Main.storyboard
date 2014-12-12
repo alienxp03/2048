@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Swift_2048" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Puzzle_2048" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -22,7 +22,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVq-0W-avh" customClass="GridView" customModule="Swift_2048" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVq-0W-avh" customClass="GridView" customModule="Puzzle_2048" customModuleProvider="target">
                                 <rect key="frame" x="10" y="174" width="300" height="300"/>
                                 <color key="backgroundColor" red="0.60390624999999998" green="0.81724537037037037" blue="0.8495949074074074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -63,8 +63,8 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2FJ-I2-y7g">
                                 <rect key="frame" x="10" y="25" width="103" height="103"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2048" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHA-H0-pID">
-                                        <rect key="frame" x="0.0" y="17" width="103" height="44"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2048" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHA-H0-pID" userLabel="2048">
+                                        <rect key="frame" x="-1" y="17" width="103" height="44"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                                         <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -221,7 +221,7 @@
         <!--Menu View Controller-->
         <scene sceneID="fiE-ge-bVS">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="6kp-2a-le3" customClass="MenuViewController" customModule="Swift_2048" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="6kp-2a-le3" customClass="MenuViewController" customModule="Puzzle_2048" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iCk-rh-W96"/>
                         <viewControllerLayoutGuide type="bottom" id="kMz-nK-Nft"/>
@@ -231,13 +231,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MENU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91K-35-cAE">
-                                <rect key="frame" x="68" y="43" width="184" height="48"/>
+                                <rect key="frame" x="68" y="20" width="184" height="48"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.39720735499999998" green="0.27930466199999998" blue="0.19148174600000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H1-Y9-AnG">
-                                <rect key="frame" x="59" y="130" width="202" height="63"/>
+                                <rect key="frame" x="59" y="85" width="202" height="50"/>
                                 <color key="backgroundColor" red="0.67084160052910047" green="0.59703066951813788" blue="0.43863592967050002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="KEEP GOING">
@@ -254,7 +254,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZp-Yq-YUx">
-                                <rect key="frame" x="59" y="223" width="202" height="63"/>
+                                <rect key="frame" x="59" y="160" width="202" height="50"/>
                                 <color key="backgroundColor" red="0.67084160049999997" green="0.59703066950000006" blue="0.43863592969999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="CLASSIC MODE">
@@ -267,11 +267,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="classicMode:" destination="6kp-2a-le3" eventType="touchUpInside" id="tdT-ty-waN"/>
+                                    <action selector="changeGameMode:" destination="6kp-2a-le3" eventType="touchUpInside" id="9zh-0B-f2t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yI-vg-yST">
-                                <rect key="frame" x="59" y="314" width="202" height="63"/>
+                                <rect key="frame" x="59" y="235" width="202" height="50"/>
                                 <color key="backgroundColor" red="0.67084160049999997" green="0.59703066950000006" blue="0.43863592969999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="TIME MODE">
@@ -284,7 +284,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="timeMode:" destination="6kp-2a-le3" eventType="touchUpInside" id="QqS-e0-weD"/>
+                                    <action selector="changeGameMode:" destination="6kp-2a-le3" eventType="touchUpInside" id="rQk-VT-Kex"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LWG-VL-fPG">
+                                <rect key="frame" x="59" y="310" width="202" height="50"/>
+                                <color key="backgroundColor" red="0.67084160049999997" green="0.59703066950000006" blue="0.43863592969999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="STEP MODE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changeGameMode:" destination="6kp-2a-le3" eventType="touchUpInside" id="zmL-kF-mMM"/>
                                 </connections>
                             </button>
                         </subviews>

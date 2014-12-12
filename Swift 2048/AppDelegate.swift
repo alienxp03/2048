@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .None)
+        
+        IAPHelper.sharedInstance.requestProductsWithCompletionHandler( {
+            (success, products) in
+        })
+        
         return true
     }
 

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import StoreKit
 
 protocol GameModeProtocol {
     func changeGameMode(mode: GameModeType)
 }
 
 class ViewController: UIViewController, GameModeProtocol {
-    
+    var isModeUnlocked: Bool?
     var model: GameModel!
 
     @IBOutlet var gridBoard: GridView!
@@ -25,8 +26,10 @@ class ViewController: UIViewController, GameModeProtocol {
     @IBOutlet var modeLabel: UILabel!
     @IBOutlet var modeDetails: UILabel!
     
-    var countdownTimer:NSTimer?
-    var maxCountdownTime:Int?
+    var countdownTimer: NSTimer!
+    var countdownTime: Int!
+    var continueCountdownTime: Int!
+    var stepsLeft: Int!
     
     var gameModeDelegate: GameModeProtocol?
     
@@ -35,18 +38,32 @@ class ViewController: UIViewController, GameModeProtocol {
         // Do any additional setup after loading the view, typically from a nib.
         
         model = GameModel.sharedInstance
-        maxCountdownTime = model.maxCountdownTime
+        countdownTime = model.maxCountdownTime
+        stepsLeft = model.maxSteps
+        
+        println("Set \(countdownTime)")
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateScore", name:"UpdateScore", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateHighScore", name:"UpdateHighScore", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameOver", name:"GameOver", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateHighScore", name:skStepMoved, object: nil)
         
         updateHighScore()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if self.model.gameMode == .TIME {
+            continueCountdownTime = countdownTime
+            countdownTimer?.invalidate()
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
-        // cancel the timer if there is any
-//        countdownTimer?.invalidate()
+        if self.model.gameMode == .TIME && countdownTime != model.maxCountdownTime {
+            // Resume countdown if there's any
+            self.countdownTime = continueCountdownTime
+            self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,14 +78,26 @@ class ViewController: UIViewController, GameModeProtocol {
     
     func updateHighScore() {
         
-        switch model.mode {
+        switch model.gameMode {
             case .CLASSIC:
-                var highestScore =  NSUserDefaults.standardUserDefaults().objectForKey("highScore") as NSInteger
-                highScore.text = String(highestScore)
-            case .TIME:
-                if maxCountdownTime >= 0 {
-                    highScore.text = String(maxCountdownTime!)
+                var highestScore =  NSUserDefaults.standardUserDefaults().objectForKey("highScore") as? NSInteger
+                
+                if highestScore == nil {
+                    highestScore = 0
+                    NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highScore")
                 }
+                
+                highScore.text = String(highestScore!)
+            case .TIME:
+                if countdownTime >= 0 {
+                    highScore.text = String(countdownTime!)
+                }
+            case .STEP:
+                highScore.text = String(stepsLeft!--)
+            
+                if highScore.text == "0" {
+                    gameOver()
+            }
         }
     }
     
@@ -81,6 +110,8 @@ class ViewController: UIViewController, GameModeProtocol {
     
     func resetGame() {
         score.text = "0"
+        stepsLeft = model.maxSteps
+        countdownTime = model.maxCountdownTime
         updateHighScore()
         self.gridBoard.setNeedsDisplay()
         
@@ -102,14 +133,29 @@ class ViewController: UIViewController, GameModeProtocol {
     }
     
     @IBAction func restartGame(sender: AnyObject) {
+        continueCountdownTime = countdownTime
+        countdownTimer?.invalidate()
+        
         let alertView = SIAlertView(title: "New Game", andMessage: "Current score will be erased! Do you want to restart the game?")
         alertView.transitionStyle = SIAlertViewTransitionStyle.Fade
         
-        alertView.addButtonWithTitle("Cancel", type: .Cancel, handler: nil)
+        alertView.addButtonWithTitle("Cancel", type: .Cancel, handler: {
+            (SIAlertViewHandler) in
+            
+            if self.model.gameMode == .TIME {
+                // Resume countdown if there's any
+                self.countdownTime = self.continueCountdownTime
+                self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+            }
+            
+        })
         
         alertView.addButtonWithTitle("New Game", type: .Destructive, handler: {
             (SIAlertViewHandler) in
-            self.resetGame()
+                self.resetGame()
+                if self.model.gameMode == .TIME {
+                    self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+                }
         })
         
         alertView.show()
@@ -120,7 +166,7 @@ class ViewController: UIViewController, GameModeProtocol {
     }
     
     @IBAction func resetGame(sender: AnyObject) {
-        changeGameMode(model.mode)
+        changeGameMode(model.gameMode)
     }
     
     func changeGameMode(mode: GameModeType) {
@@ -133,17 +179,20 @@ class ViewController: UIViewController, GameModeProtocol {
             case .TIME:
                 modeLabel.text = "Time Mode"
                 highScoreLabel.text = "Time"
-                maxCountdownTime = model.maxCountdownTime
+                countdownTime = model.maxCountdownTime
                 countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+            case .STEP:
+                modeLabel.text = "Step Mode"
+                highScoreLabel.text = "Step"
         }
         
         updateHighScore()
-        model.mode = mode
+        model.gameMode = mode
         resetGame()
     }
     
     func countdown() {
-        var time = maxCountdownTime!--
+        var time = countdownTime!--
         updateHighScore()
         
         if time < 1 {
