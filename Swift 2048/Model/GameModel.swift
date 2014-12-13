@@ -8,10 +8,6 @@
 
 import UIKit
 
-let gridSize                = 4
-let kStepModeNotification   = "kStepModeNotification"
-let skStepMoved             = "StepMoved"
-
 class GameModel: TimeModeProtocol {
     
     let maxCountdownTime        = 150
@@ -38,9 +34,9 @@ class GameModel: TimeModeProtocol {
     func startGame() {
         gameBoard = Array<Array<Any>>()
         
-        for var i = 0; i < gridSize; i++ {
+        for var i = 0; i < skGridSize; i++ {
             var columnArray = Array<Any>()
-            for var j = 0; j < gridSize; j++ {
+            for var j = 0; j < skGridSize; j++ {
                 columnArray.append(NSNull())
             }
             gameBoard.append(columnArray)
@@ -66,8 +62,8 @@ class GameModel: TimeModeProtocol {
     func spawnRandomTile() {
         var spawned = false
         while !spawned {
-            var randomColumn = Int(arc4random_uniform(UInt32(gridSize)))
-            var randomRow = Int(arc4random_uniform(UInt32(gridSize)))
+            var randomColumn = Int(arc4random_uniform(UInt32(skGridSize)))
+            var randomRow = Int(arc4random_uniform(UInt32(skGridSize)))
             var positionFree = (gameBoard[randomColumn][randomRow] as? NSNull == NSNull())
             if positionFree {
                 addTileAtColumn(randomColumn, row: randomRow)
@@ -224,7 +220,7 @@ class GameModel: TimeModeProtocol {
         var mergedTile = gameBoard[x][y] as TileView
         var otherTile = gameBoard[otherTileX][otherTileY] as TileView
         score += mergedTile.value + otherTile.value
-        otherTile.value *= 2
+        otherTile.value = otherTile.value * 2
         otherTile.mergedThisRound = true
         gameBoard[x][y] = NSNull()
         
@@ -246,8 +242,8 @@ class GameModel: TimeModeProtocol {
     func nextRound() {
         spawnRandomTile()
         
-        for var i = 0; i < gridSize; i++ {
-            for var j = 0; j < gridSize; j++ {
+        for var i = 0; i < skGridSize; i++ {
+            for var j = 0; j < skGridSize; j++ {
                 let tile = gameBoard[i][j] as? TileView
                 if tile != nil {
                     tile?.mergedThisRound = false
@@ -274,8 +270,8 @@ class GameModel: TimeModeProtocol {
             }
         }
         
-        for var i = 0; i < gridSize; i++ {
-            for var j = 0; j < gridSize; j++ {
+        for var i = 0; i < skGridSize; i++ {
+            for var j = 0; j < skGridSize; j++ {
                 var tile = gameBoard[i][j] as? TileView
                 if tile == nil {
                     return true
@@ -307,8 +303,8 @@ class GameModel: TimeModeProtocol {
     func gameBoardSize() -> Int {
         var size = 0
         
-        for var i = 0; i < gridSize; i++ {
-            for var j = 0; j < gridSize; j++ {
+        for var i = 0; i < skGridSize; i++ {
+            for var j = 0; j < skGridSize; j++ {
                 if let tile = gameBoard[i][j] as? TileView {
                     size++
                 }
@@ -368,8 +364,8 @@ class GameModel: TimeModeProtocol {
         Print the game board to the console
     */
     func displayGameBoardToConsole() {
-        for var i = 0; i < gridSize; i++ {
-            for var j = 0; j < gridSize; j++ {
+        for var i = 0; i < skGridSize; i++ {
+            for var j = 0; j < skGridSize; j++ {
                 if let tile = gameBoard[i][j] as? TileView {
                     print(" \(tile.value) ")
                 } else {
@@ -378,7 +374,6 @@ class GameModel: TimeModeProtocol {
             }
             println()
         }
-//        println("Board \(gameBoardSize())")
     }
     
     

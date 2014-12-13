@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol GridViewDelegate {
-    func restartGameAfterRedraw(value: Bool)
-}
-
 class GridView: UIView {
     
     var columnWitdh:CGFloat!
@@ -28,14 +24,12 @@ class GridView: UIView {
     
     var noTile                              = NSNull()
     
-    var delegate: GridViewDelegate!
-    
     // MARK: Required
     override func drawRect(rect: CGRect) {
         setupBackground()
     }
     
-    // MARK: 
+    // MARK: Tiles drawing
     
     /*
         Calculate and draw the main board background
@@ -45,16 +39,16 @@ class GridView: UIView {
         columnWitdh = tile.frame.size.width
         columnHeight = tile.frame.size.height
         
-        tileMarginHorizontal = (frame.size.width - (CGFloat(gridSize) * columnWitdh)) / (CGFloat(gridSize) + 1)
-        tileMarginVertical = (frame.size.height - (CGFloat(gridSize) * columnWitdh)) / (CGFloat(gridSize) + 1)
+        tileMarginHorizontal = (frame.size.width - (CGFloat(skGridSize) * columnWitdh)) / (CGFloat(skGridSize) + 1)
+        tileMarginVertical = (frame.size.height - (CGFloat(skGridSize) * columnWitdh)) / (CGFloat(skGridSize) + 1)
         
         var x:CGFloat = tileMarginHorizontal
         var y:CGFloat = tileMarginVertical
         
-        for var i = 0; i < gridSize; i++ {
+        for var i = 0; i < skGridSize; i++ {
             x = tileMarginHorizontal
             
-            for var j = 0; j < gridSize; j++ {
+            for var j = 0; j < skGridSize; j++ {
                 var view = UIView(frame: CGRectMake(x, y, tile.frame.size.width, tile.frame.size.height))
                 view.backgroundColor = UIColor(red: 0.682, green: 0.855, blue: 0.851, alpha: 1)
                 addSubview(view)

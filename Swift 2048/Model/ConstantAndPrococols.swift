@@ -8,6 +8,9 @@
 
 import UIKit
 
+let skGridSize              = 4
+let skStepMoved             = "StepMoved"
+
 enum GameModeType {
     case CLASSIC, TIME, STEP
     
@@ -48,13 +51,13 @@ protocol GameModelProtocol {
     func mergeTileAtIndex(oldTile: TileView, newTile: TileView, x: NSInteger, y: NSInteger, otherTileX: NSInteger, otherTileY: NSInteger)
 }
 
+// Only for Time Mode
 protocol TimeModeProtocol {
     func timeModeStartGame()
     func timeModePauseGame()
     func timeModeResumeGame(time: Int)
     func timeModeGameOver()
 }
-
 
 class ConstantAndPrococols: NSObject {
    

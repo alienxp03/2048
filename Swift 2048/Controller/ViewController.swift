@@ -13,7 +13,7 @@ protocol GameModeProtocol {
     func changeGameMode(mode: GameModeType)
 }
 
-class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, GridViewDelegate {
+class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
     var isModeUnlocked: Bool?
     var gameModel: GameModel!
     
@@ -101,9 +101,6 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
     override func viewDidAppear(animated: Bool) {
         if gameModel.gameBoard == nil {
             gameModel.startGame()
-            gridView.delegate = self
-            
-//            NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "randomMove", userInfo: nil, repeats: true)
         }
     }
 

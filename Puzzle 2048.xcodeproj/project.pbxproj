@@ -26,6 +26,7 @@
 		EB4F0C621A3C1F7F00F56AAB /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7299F11A39EE420025B37F /* IAPHelper.swift */; };
 		EB4F0C641A3C52BF00F56AAB /* ConstantAndPrococols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */; };
 		EB4F0C651A3C530900F56AAB /* ConstantAndPrococols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */; };
+		EB4F0C681A3C591000F56AAB /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C671A3C591000F56AAB /* IAPProducts.swift */; };
 		EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7299F11A39EE420025B37F /* IAPHelper.swift */; };
 		EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7299EF1A39EE100025B37F /* StoreKit.framework */; };
 		EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
@@ -59,6 +60,7 @@
 		EB4F0C551A3C1D9700F56AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4F0C561A3C1D9700F56AAB /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
 		EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstantAndPrococols.swift; path = Model/ConstantAndPrococols.swift; sourceTree = "<group>"; };
+		EB4F0C671A3C591000F56AAB /* IAPProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPProducts.swift; path = Model/IAPProducts.swift; sourceTree = "<group>"; };
 		EB7299EF1A39EE100025B37F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB7299F11A39EE420025B37F /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		EB9A59B51A398DD200655AD3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				EB460E381A395CE300AC129E /* GameModel.swift */,
 				EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */,
+				EB4F0C671A3C591000F56AAB /* IAPProducts.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -130,15 +133,14 @@
 		EB4D21191A380E98008DD09D /* Puzzle 2048 */ = {
 			isa = PBXGroup;
 			children = (
+				EB9A59B91A3991C400655AD3 /* Bridging-Header.h */,
+				EB4D211C1A380E98008DD09D /* AppDelegate.swift */,
 				EB460E371A395CC100AC129E /* Model */,
 				EB4D213F1A380FC1008DD09D /* Views */,
 				EB4D213C1A380FB8008DD09D /* Controller */,
-				EB4D21201A380E98008DD09D /* Main.storyboard */,
-				EB4D21231A380E98008DD09D /* Images.xcassets */,
-				EB4D21251A380E98008DD09D /* LaunchScreen.xib */,
+				EB4F0C661A3C57DE00F56AAB /* Storyboard */,
 				EB4D211A1A380E98008DD09D /* Supporting Files */,
-				EB9A59B91A3991C400655AD3 /* Bridging-Header.h */,
-				EB4D211C1A380E98008DD09D /* AppDelegate.swift */,
+				EB4D21231A380E98008DD09D /* Images.xcassets */,
 			);
 			name = "Puzzle 2048";
 			path = "Swift 2048";
@@ -186,6 +188,15 @@
 				EB4F0C551A3C1D9700F56AAB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB4F0C661A3C57DE00F56AAB /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				EB4D21201A380E98008DD09D /* Main.storyboard */,
+				EB4D21251A380E98008DD09D /* LaunchScreen.xib */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +371,7 @@
 				EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */,
 				EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */,
 				EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */,
+				EB4F0C681A3C591000F56AAB /* IAPProducts.swift in Sources */,
 				EB4D21411A380FEA008DD09D /* GridView.swift in Sources */,
 				EB4F0C641A3C52BF00F56AAB /* ConstantAndPrococols.swift in Sources */,
 				EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */,

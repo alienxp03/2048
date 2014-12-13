@@ -12,15 +12,10 @@ let tileSize:CGFloat = 70
 
 class TileView: UIView {
     
-    var textLabel: UILabel
-    var value: NSInteger
-    var mergedThisRound: Bool
+    var textLabel: UILabel!
+    var value: NSInteger!
+    var mergedThisRound: Bool!
 
-    override func drawRect(rect: CGRect) {
-        updateValueDisplay()
-        addSubview(textLabel)
-    }
-    
     override init() {
         textLabel = UILabel(frame: CGRectMake(0, 0, tileSize, tileSize))
         value = (Int(arc4random_uniform(2)) + 1) * 2
@@ -28,10 +23,13 @@ class TileView: UIView {
         textLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 32)
         mergedThisRound = false
         super.init(frame: CGRectMake(0, 0, tileSize, tileSize))
+        
+        updateValueDisplay()
+        addSubview(textLabel)
     }
-    
-    required init(coder: NSCoder) {
-        fatalError("NSCoding not supported")
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: Update label

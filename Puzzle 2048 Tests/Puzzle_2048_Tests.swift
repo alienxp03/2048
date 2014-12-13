@@ -37,9 +37,9 @@ class Puzzle_2048_Tests: XCTestCase, GameModelProtocol {
         var fakeGameBoard = Array<Array<Any>>()
         
         // Fill with the best possible move, from 2, 4 .. 65536
-        for var i = 0; i < gridSize; i++ {
+        for var i = 0; i < skGridSize; i++ {
             var columnArray = Array<Any>()
-            for var j = 0; j < gridSize; j++ {
+            for var j = 0; j < skGridSize; j++ {
                 let tile = TileView()
                 tile.value = Int(powf(Float(2), Float(pow++)))
                 columnArray.append(tile)
