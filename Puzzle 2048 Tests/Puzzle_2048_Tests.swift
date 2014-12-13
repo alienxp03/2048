@@ -83,13 +83,17 @@ class Puzzle_2048_Tests: XCTestCase, GameModelProtocol {
         expectation = expectationWithDescription("Time Mode: Game should already be over by now")
         
         // We can't really test the game from the start
-        // We just resume the game
+        // We just assume to resume the game
         var resumeTime: NSTimeInterval = 2
         delegate.timeModeResumeGame(Int(resumeTime))
         
-        // Don't be time Nazi, add 1 sec to resumeTime
+        // Don't be time Nazi, add 1 sec to for possible compiler testing delay
         resumeTime += 1
         waitForExpectationsWithTimeout(resumeTime, handler: nil)
+    }
+    
+    func testTilesMerging() {
+        
     }
     
     
@@ -98,6 +102,7 @@ class Puzzle_2048_Tests: XCTestCase, GameModelProtocol {
     func gameOver() {
         // Expectation is only for the time mode
         if gameModel.gameMode == .TIME {
+            // Time's up, fulfill the expectation
             expectation.fulfill()
         }
     }

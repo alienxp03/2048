@@ -32,6 +32,17 @@ class GameModel: TimeModeProtocol {
     }
     
     func startGame() {
+        emptyGameBoard()
+        
+        spawnStartTiles()
+        
+        gameState = .RUNNING
+    }
+    
+    /*
+        Create an empty gameboard
+    */
+    func emptyGameBoard() {
         gameBoard = Array<Array<Any>>()
         
         for var i = 0; i < skGridSize; i++ {
@@ -41,14 +52,11 @@ class GameModel: TimeModeProtocol {
             }
             gameBoard.append(columnArray)
         }
-        
-        spawnStartTiles()
-        
-        gameState = .RUNNING
     }
     
+    
     /*
-    Add/create a tile at given position
+        Add/create a tile at given position
     */
     func addTileAtColumn(column: NSInteger, row: NSInteger) {
         var tile = TileView()
@@ -57,7 +65,7 @@ class GameModel: TimeModeProtocol {
     }
     
     /*
-    Spawn a random tile at random position
+        Spawn a random tile at random position
     */
     func spawnRandomTile() {
         var spawned = false
@@ -173,7 +181,6 @@ class GameModel: TimeModeProtocol {
                     // compare value of other tile and also check if the other tile has been merged this round
                     if tile?.value == otherTile.value && !otherTile.mergedThisRound {
                         // merge tiles
-                        // TODO:
                         mergeTileAtIndex(currentX, y: currentY, otherTileX: otherTileX, otherTileY: otherTileY)
                         movedTilesThisRound = true
                     } else {
@@ -187,7 +194,6 @@ class GameModel: TimeModeProtocol {
                 if performMove {
                     // move tile to furthest position
                     if newX != currentX || newY != currentY {
-                        // TODO:
                         moveTile(tile!, oldX: currentX, oldY: currentY, newX: newX, newY: newY)
                         movedTilesThisRound = true
                     }
@@ -366,7 +372,7 @@ class GameModel: TimeModeProtocol {
     func displayGameBoardToConsole() {
         for var i = 0; i < skGridSize; i++ {
             for var j = 0; j < skGridSize; j++ {
-                if let tile = gameBoard[i][j] as? TileView {
+                if let tile = gameBoard[j][i] as? TileView {
                     print(" \(tile.value) ")
                 } else {
                     print(" 0 ")

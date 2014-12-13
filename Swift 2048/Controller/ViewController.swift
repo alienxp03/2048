@@ -47,6 +47,38 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         setupSwipeGestures()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if self.gameModel.gameMode == .TIME {
+            // Pause the timer for game mode, if user is going to other view
+            continueCountdownTime = gameModel.currentCountdownTime
+            timeModeDelegate.timeModePauseGame()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if self.gameModel.gameMode == .TIME && gameModel.currentCountdownTime != gameModel.maxCountdownTime {
+            // Resume the timer for game mode, if user is coming back from another view
+            timeModeDelegate.timeModeResumeGame(continueCountdownTime)
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if gameModel.gameBoard == nil {
+            gameModel.startGame()
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
+    // MARK: Swipe actions
+    
+    /*
+        Setup swipe gestures to the GridView, not the current view controller's view
+    */
     func setupSwipeGestures() {
         // swipe gestures
         var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swipeLeft")
@@ -66,8 +98,6 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         gridView.addGestureRecognizer(swipeDown)
     }
     
-    // MARK: Swipe actions
-    
     func swipeLeft() {
         moveTile(CGPoint(x: -1, y: 0))
     }
@@ -84,55 +114,9 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         moveTile(CGPoint(x: 0, y: 1))
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        if self.gameModel.gameMode == .TIME {
-            continueCountdownTime = gameModel.currentCountdownTime
-            timeModeDelegate.timeModePauseGame()
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        if self.gameModel.gameMode == .TIME && gameModel.currentCountdownTime != gameModel.maxCountdownTime {
-            // Resume countdown if there's any
-            timeModeDelegate.timeModeResumeGame(continueCountdownTime)
-        }
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        if gameModel.gameBoard == nil {
-            gameModel.startGame()
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func updateScore() {
         score.text = String(gameModel.score)
         gameOverScore.text = String(gameModel.score)
-    }
-    
-    func resetGame() {
-        self.gridView.setNeedsDisplay()
-        
-        score.text = "0"
-        gameModel.currentMoveStep = gameModel.maxSteps
-        gameModel.currentCountdownTime = gameModel.maxCountdownTime
-        updateHighScore()
-        
-        // Need some delay, since we redraw the grid view
-        delay(0.2, closure: {
-            self.gameModel.startGame()
-        })
-        
-        UIView.animateWithDuration(0.5, animations: {
-            self.gameOverView.alpha = 0
-            }, completion: {
-                (value: Bool) in
-                self.gameOverView.hidden = true
-        })
     }
     
     // MARK: IBActions
@@ -183,20 +167,44 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         changeGameMode(gameModel.gameMode)
     }
     
+    // MARK:
+    
+    /*
+        Delay the action in the block for few second/s
+    */
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    /*
+        Try to move a tile at a certain direction
+    */
+    func moveTile(direction: CGPoint) {
+        gameModel.move(direction)
+    }
+    
+    /*
+        Change the game mode using a delegate to the game model
+    */
     func changeGameMode(mode: GameModeType) {
         countdownTimer?.invalidate()
         
         switch mode {
-            case .CLASSIC:
-                modeLabel.text = "Classic Mode"
-                highScoreLabel.text = "Best"
-            case .TIME:
-                modeLabel.text = "Time Mode"
-                highScoreLabel.text = "Time"
-                timeModeDelegate.timeModeStartGame()
-            case .STEP:
-                modeLabel.text = "Step Mode"
-                highScoreLabel.text = "Step"
+        case .CLASSIC:
+            modeLabel.text = "Classic Mode"
+            highScoreLabel.text = "Best"
+        case .TIME:
+            modeLabel.text = "Time Mode"
+            highScoreLabel.text = "Time"
+            timeModeDelegate.timeModeStartGame()
+        case .STEP:
+            modeLabel.text = "Step Mode"
+            highScoreLabel.text = "Step"
         }
         
         updateHighScore()
@@ -204,6 +212,11 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         resetGame()
     }
     
+    /*
+        Take a screeenshot of the current screen. 
+    
+        @returns A UIImage object
+    */
     func takeScreenshot() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(UIScreen.mainScreen().bounds.size, false, 0);
         self.view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
@@ -213,14 +226,28 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         return image
     }
     
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    /*
+        Reset the game state using the game model delegate
+    */
+    func resetGame() {
+        self.gridView.setNeedsDisplay()
+        
+        score.text = "0"
+        gameModel.currentMoveStep = gameModel.maxSteps
+        gameModel.currentCountdownTime = gameModel.maxCountdownTime
+        updateHighScore()
+        
+        // Need some delay, since we redraw the grid view
+        delay(0.2, closure: {
+            self.gameModel.startGame()
+        })
+        
+        UIView.animateWithDuration(0.5, animations: {
+            self.gameOverView.alpha = 0
+            }, completion: {
+                (value: Bool) in
+                self.gameOverView.hidden = true
+        })
     }
     
     // MARK: GameModelProtocol
@@ -246,6 +273,9 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         }
     }
     
+    /*
+        A step move means we're in Step Mode. We update the highscore because the steps label is the same as the highscore
+    */
     func stepMoved() {
         updateHighScore()
     }
@@ -257,10 +287,6 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         UIView.animateWithDuration(0.5, animations: {
             self.gameOverView.alpha = 1
         })
-    }
-    
-    func moveTile(direction: CGPoint) {
-        gameModel.move(direction)
     }
     
     func addTileAtPosition(tile: TileView, column: Int, row: Int) {

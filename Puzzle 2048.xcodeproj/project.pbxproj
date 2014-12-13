@@ -26,7 +26,7 @@
 		EB4F0C621A3C1F7F00F56AAB /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7299F11A39EE420025B37F /* IAPHelper.swift */; };
 		EB4F0C641A3C52BF00F56AAB /* ConstantAndPrococols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */; };
 		EB4F0C651A3C530900F56AAB /* ConstantAndPrococols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */; };
-		EB4F0C681A3C591000F56AAB /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C671A3C591000F56AAB /* IAPProducts.swift */; };
+		EB4F0C6B1A3C618000F56AAB /* IAPHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C6A1A3C618000F56AAB /* IAPHelperTests.swift */; };
 		EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7299F11A39EE420025B37F /* IAPHelper.swift */; };
 		EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7299EF1A39EE100025B37F /* StoreKit.framework */; };
 		EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
@@ -60,7 +60,7 @@
 		EB4F0C551A3C1D9700F56AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4F0C561A3C1D9700F56AAB /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
 		EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstantAndPrococols.swift; path = Model/ConstantAndPrococols.swift; sourceTree = "<group>"; };
-		EB4F0C671A3C591000F56AAB /* IAPProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPProducts.swift; path = Model/IAPProducts.swift; sourceTree = "<group>"; };
+		EB4F0C6A1A3C618000F56AAB /* IAPHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelperTests.swift; sourceTree = "<group>"; };
 		EB7299EF1A39EE100025B37F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB7299F11A39EE420025B37F /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		EB9A59B51A398DD200655AD3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +105,6 @@
 			children = (
 				EB460E381A395CE300AC129E /* GameModel.swift */,
 				EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */,
-				EB4F0C671A3C591000F56AAB /* IAPProducts.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -176,6 +175,7 @@
 		EB4F0C531A3C1D9700F56AAB /* Puzzle 2048 Tests */ = {
 			isa = PBXGroup;
 			children = (
+				EB4F0C6A1A3C618000F56AAB /* IAPHelperTests.swift */,
 				EB4F0C561A3C1D9700F56AAB /* Puzzle_2048_Tests.swift */,
 				EB4F0C541A3C1D9700F56AAB /* Supporting Files */,
 			);
@@ -371,7 +371,6 @@
 				EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */,
 				EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */,
 				EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */,
-				EB4F0C681A3C591000F56AAB /* IAPProducts.swift in Sources */,
 				EB4D21411A380FEA008DD09D /* GridView.swift in Sources */,
 				EB4F0C641A3C52BF00F56AAB /* ConstantAndPrococols.swift in Sources */,
 				EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */,
@@ -386,6 +385,7 @@
 				EB4F0C601A3C1F7F00F56AAB /* ViewController.swift in Sources */,
 				EB4F0C611A3C1F7F00F56AAB /* MenuViewController.swift in Sources */,
 				EB4F0C571A3C1D9700F56AAB /* Puzzle_2048_Tests.swift in Sources */,
+				EB4F0C6B1A3C618000F56AAB /* IAPHelperTests.swift in Sources */,
 				EB4F0C5E1A3C1E6900F56AAB /* TileView.swift in Sources */,
 				EB4F0C5F1A3C1F7F00F56AAB /* GridView.swift in Sources */,
 				EB4F0C651A3C530900F56AAB /* ConstantAndPrococols.swift in Sources */,

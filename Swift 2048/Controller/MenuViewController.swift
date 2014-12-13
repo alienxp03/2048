@@ -16,6 +16,8 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Store all the product lists [SKProduct]
         productsIAP = IAPHelper.sharedInstance.productList
         
         // Do any additional setup after loading the view.
@@ -28,10 +30,17 @@ class MenuViewController: UIViewController {
     
     // MARK: IBActions
     
+    /*
+        Dismiss the current view controller
+    */
     @IBAction func keepGoing(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    /*
+        User decided to change the game mode. If the user haven't buy the product yet, app will ask the user to buy the IAP
+    */
     @IBAction func changeGameMode(sender: UIButton) {
         switch sender.titleLabel!.text! {
             case "CLASSIC MODE":

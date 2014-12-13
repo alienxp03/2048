@@ -12,6 +12,7 @@ import StoreKit
 let skTimeModeUnlockedIdentifier = "com.alienxp03.puzzle2048.timemode"
 let skStepModeUnlockedIdentifier = "com.alienxp03.puzzle2048.stepmode"
 
+// A block that will return the products once we get a reply from the store
 typealias RequestProductsCompletionHandler = (success: Bool, products: [SKProduct]?) -> Void
 
 class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
@@ -22,6 +23,9 @@ class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserv
     var productList: [String: SKProduct]!
     var purchasedProductIdentifiers: NSMutableSet!
     
+    /*
+        Singleton
+    */
     class var sharedInstance: IAPHelper {
         struct Static {
             
@@ -30,6 +34,9 @@ class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserv
         return Static.instance
     }
     
+    /*
+        Custom initializer to check what are the items that the user has purchased
+    */
     init(productIdentifiers: NSSet) {
         
         self.productIdentifiers = productIdentifiers
@@ -49,6 +56,9 @@ class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserv
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
     }
     
+    /*
+        Start requesting the products from iTunesConnect
+    */
     func requestProductsWithCompletionHandler(completionHandler: RequestProductsCompletionHandler) {
         self.completionHandler = completionHandler
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
@@ -56,6 +66,11 @@ class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserv
         productsRequest.start()
     }
     
+    // MARK: SKProductsRequestDelegate
+    
+    /*
+        Save all the products once we get a reply from the store
+    */
     func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
         productsRequest = nil
         
@@ -72,6 +87,9 @@ class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserv
         completionHandler = nil
     }
     
+    /*
+        Inspect error if there's any
+    */
     func request(request: SKRequest!, didFailWithError error: NSError!) {
         println("Error \(error)")
         
@@ -80,14 +98,22 @@ class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserv
         completionHandler = nil
     }
     
+    /*
+        Check if the product is already been purchased
+    */
     func isProductPurchased(productIdentifier: String) -> Bool {
         return purchasedProductIdentifiers.containsObject(productIdentifier)
     }
     
+    /*
+        Buy a product. Make sure to pass the right SKProduct object
+    */
     func buyProduct(product: SKProduct) {
         var payment = SKPayment(product: product)
         SKPaymentQueue.defaultQueue().addPayment(payment)
     }
+    
+    // MARK: SKPaymentTransactionObserver
     
     func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
         for transaction in transactions as [SKPaymentTransaction] {
@@ -127,6 +153,5 @@ class IAPHelper: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserv
         purchasedProductIdentifiers.addObject(productIdentifier)
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: productIdentifier)
         NSUserDefaults.standardUserDefaults().synchronize()
-//        NSNotificationCenter.defaultCenter().postNotificationName(ksIAPHelperProductPurchasedNotification, object: productIdentifier, userInfo: nil)
     }
 }

@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .None)
         
-        IAPHelper.sharedInstance.requestProductsWithCompletionHandler( {
-            (success, products) in
+        // Request the product list
+        IAPHelper.sharedInstance.requestProductsWithCompletionHandler({
+            (value, products) in
         })
         
         return true
