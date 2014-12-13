@@ -16,6 +16,8 @@ protocol GameModeProtocol {
 class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, GridViewDelegate {
     var isModeUnlocked: Bool?
     var gameModel: GameModel!
+    
+    var timeModeDelegate: TimeModeProtocol!
 
     @IBOutlet var gridView: GridView!
     @IBOutlet var score: UILabel!
@@ -27,11 +29,9 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
     @IBOutlet var modeDetails: UILabel!
     
     var countdownTimer: NSTimer!
-    var countdownTime: Int!
     var continueCountdownTime: Int!
-    var stepsLeft: Int!
+//    var stepsLeft: Int!
     
-    var gameModeDelegate: GameModeProtocol!
     var gameOverScreenshot: UIImage!
     
     override func viewDidLoad() {
@@ -39,9 +39,9 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
         // Do any additional setup after loading the view, typically from a nib.
         
         gameModel = GameModel(delegate: self)
+        timeModeDelegate = gameModel
         
-        countdownTime = gameModel.maxCountdownTime
-        stepsLeft = gameModel.maxSteps
+        gameModel.currentMoveStep = gameModel.maxSteps
         
         updateHighScore()
         setupSwipeGestures()
@@ -86,16 +86,15 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
     
     override func viewWillDisappear(animated: Bool) {
         if self.gameModel.gameMode == .TIME {
-            continueCountdownTime = countdownTime
-            countdownTimer?.invalidate()
+            continueCountdownTime = gameModel.currentCountdownTime
+            timeModeDelegate.timeModePauseGame()
         }
     }
     
     override func viewWillAppear(animated: Bool) {
-        if self.gameModel.gameMode == .TIME && countdownTime != gameModel.maxCountdownTime {
+        if self.gameModel.gameMode == .TIME && gameModel.currentCountdownTime != gameModel.maxCountdownTime {
             // Resume countdown if there's any
-            self.countdownTime = continueCountdownTime
-            self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+            timeModeDelegate.timeModeResumeGame(continueCountdownTime)
         }
     }
     
@@ -103,6 +102,8 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
         if gameModel.gameBoard == nil {
             gameModel.startGame()
             gridView.delegate = self
+            
+//            NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "randomMove", userInfo: nil, repeats: true)
         }
     }
 
@@ -120,8 +121,8 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
         self.gridView.setNeedsDisplay()
         
         score.text = "0"
-        stepsLeft = gameModel.maxSteps
-        countdownTime = gameModel.maxCountdownTime
+        gameModel.currentMoveStep = gameModel.maxSteps
+        gameModel.currentCountdownTime = gameModel.maxCountdownTime
         updateHighScore()
         
         // Need some delay, since we redraw the grid view
@@ -147,8 +148,8 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
     }
     
     @IBAction func restartGame(sender: AnyObject) {
-        continueCountdownTime = countdownTime
-        countdownTimer?.invalidate()
+        timeModeDelegate.timeModePauseGame()
+        continueCountdownTime = gameModel.currentCountdownTime
         
         let alertView = SIAlertView(title: "New Game", andMessage: "Current score will be erased! Do you want to restart the game?")
         alertView.transitionStyle = SIAlertViewTransitionStyle.Fade
@@ -157,9 +158,8 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
             (SIAlertViewHandler) in
             
             if self.gameModel.gameMode == .TIME {
-                // Resume countdown if there's any
-                self.countdownTime = self.continueCountdownTime
-                self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+                // Resume countdown
+                self.timeModeDelegate.timeModeResumeGame(self.continueCountdownTime)
             }
             
         })
@@ -168,7 +168,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
             (SIAlertViewHandler) in
                 self.resetGame()
                 if self.gameModel.gameMode == .TIME {
-                    self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+                    self.timeModeDelegate.timeModeStartGame()
                 }
         })
         
@@ -196,8 +196,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
             case .TIME:
                 modeLabel.text = "Time Mode"
                 highScoreLabel.text = "Time"
-                countdownTime = gameModel.maxCountdownTime
-                countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+                timeModeDelegate.timeModeStartGame()
             case .STEP:
                 modeLabel.text = "Step Mode"
                 highScoreLabel.text = "Step"
@@ -206,16 +205,6 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
         updateHighScore()
         gameModel.gameMode = mode
         resetGame()
-    }
-    
-    func countdown() {
-        var time = countdownTime!--
-        updateHighScore()
-        
-        if time < 1 {
-            countdownTimer?.invalidate()
-            gameOver()
-        }
     }
     
     func takeScreenshot() -> UIImage {
@@ -252,15 +241,11 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
             
             highScore.text = String(highestScore!)
         case .TIME:
-            if countdownTime >= 0 {
-                highScore.text = String(countdownTime!)
+            if gameModel.currentCountdownTime >= 0 {
+                highScore.text = String(gameModel.currentCountdownTime)
             }
         case .STEP:
-            highScore.text = String(stepsLeft!--)
-            
-            if highScore.text == "0" {
-                gameOver()
-            }
+            highScore.text = String(gameModel.currentMoveStep)
         }
     }
     
@@ -300,6 +285,16 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol, Gri
     func restartGameAfterRedraw(value: Bool) {
         if value {
             gameModel.startGame()
+        }
+    }
+    
+    func randomMove(){
+        let possibleMove = [CGPoint(x: -1, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: -1), CGPoint(x: 0, y: 1)] as [CGPoint]
+        
+        for i in 0...(possibleMove.count - 1) {
+            if gameModel.move(possibleMove[i]) {
+                break
+            }
         }
     }
     

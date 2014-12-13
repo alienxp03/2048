@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		153C2235002D4964A463D577 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75F84ECFB84AC695671E7D /* libPods.a */; };
 		6FF3A7A7C1A14E1185ADA463 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75F84ECFB84AC695671E7D /* libPods.a */; };
 		EB460E391A395CE300AC129E /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB460E381A395CE300AC129E /* GameModel.swift */; };
 		EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D211C1A380E98008DD09D /* AppDelegate.swift */; };
@@ -16,16 +17,23 @@
 		EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D213D1A380FB8008DD09D /* ViewController.swift */; };
 		EB4D21411A380FEA008DD09D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21401A380FEA008DD09D /* GridView.swift */; };
 		EB4D21431A38297E008DD09D /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21421A38297E008DD09D /* TileView.swift */; };
+		EB4F0C571A3C1D9700F56AAB /* Puzzle_2048_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C561A3C1D9700F56AAB /* Puzzle_2048_Tests.swift */; };
+		EB4F0C5D1A3C1E4A00F56AAB /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB460E381A395CE300AC129E /* GameModel.swift */; };
+		EB4F0C5E1A3C1E6900F56AAB /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21421A38297E008DD09D /* TileView.swift */; };
+		EB4F0C5F1A3C1F7F00F56AAB /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D21401A380FEA008DD09D /* GridView.swift */; };
+		EB4F0C601A3C1F7F00F56AAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D213D1A380FB8008DD09D /* ViewController.swift */; };
+		EB4F0C611A3C1F7F00F56AAB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
+		EB4F0C621A3C1F7F00F56AAB /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7299F11A39EE420025B37F /* IAPHelper.swift */; };
+		EB4F0C641A3C52BF00F56AAB /* ConstantAndPrococols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */; };
+		EB4F0C651A3C530900F56AAB /* ConstantAndPrococols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */; };
 		EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7299F11A39EE420025B37F /* IAPHelper.swift */; };
 		EB7299F31A3A02310025B37F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7299EF1A39EE100025B37F /* StoreKit.framework */; };
 		EB9A59B61A398DD200655AD3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A59B51A398DD200655AD3 /* MenuViewController.swift */; };
 		EB9A59B81A3990F800655AD3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9A59B71A3990F800655AD3 /* QuartzCore.framework */; };
-		EBEF368E1A3B821100E5BB63 /* Puzzle_2048_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF368D1A3B821100E5BB63 /* Puzzle_2048_Tests.swift */; };
-		EBEF36991A3B85CD00E5BB63 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF36961A3B83F000E5BB63 /* GameModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EBEF368F1A3B821100E5BB63 /* PBXContainerItemProxy */ = {
+		EB4F0C581A3C1D9700F56AAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB4D210F1A380E98008DD09D /* Project object */;
 			proxyType = 1;
@@ -44,22 +52,18 @@
 		EB4D21211A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB4D21231A380E98008DD09D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB4D21261A380E98008DD09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EB4D21311A380E98008DD09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB4D21321A380E98008DD09D /* Puzzle_2048Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048Tests.swift; sourceTree = "<group>"; };
 		EB4D213D1A380FB8008DD09D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB4D21401A380FEA008DD09D /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = Views/GridView.swift; sourceTree = "<group>"; };
 		EB4D21421A38297E008DD09D /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = Views/TileView.swift; sourceTree = "<group>"; };
+		EB4F0C521A3C1D9700F56AAB /* Puzzle 2048 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle 2048 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4F0C551A3C1D9700F56AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB4F0C561A3C1D9700F56AAB /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
+		EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstantAndPrococols.swift; path = Model/ConstantAndPrococols.swift; sourceTree = "<group>"; };
 		EB7299EF1A39EE100025B37F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB7299F11A39EE420025B37F /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		EB9A59B51A398DD200655AD3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EB9A59B71A3990F800655AD3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EB9A59B91A3991C400655AD3 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		EBEF367D1A3B2BEF00E5BB63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBEF367E1A3B2BEF00E5BB63 /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
-		EBEF36891A3B821000E5BB63 /* Puzzle 2048 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Puzzle 2048 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBEF368C1A3B821100E5BB63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBEF368D1A3B821100E5BB63 /* Puzzle_2048_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2048_Tests.swift; sourceTree = "<group>"; };
-		EBEF36961A3B83F000E5BB63 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +77,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBEF36861A3B821000E5BB63 /* Frameworks */ = {
+		EB4F0C4F1A3C1D9700F56AAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153C2235002D4964A463D577 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				EB460E381A395CE300AC129E /* GameModel.swift */,
+				EB4F0C631A3C52BF00F56AAB /* ConstantAndPrococols.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -105,9 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4D21191A380E98008DD09D /* Puzzle 2048 */,
-				EB4D212F1A380E98008DD09D /* Puzzle 2048Tests */,
-				EBEF367B1A3B2BEF00E5BB63 /* Puzzle 2048 Tests */,
-				EBEF368A1A3B821100E5BB63 /* Puzzle 2048 Tests */,
+				EB4F0C531A3C1D9700F56AAB /* Puzzle 2048 Tests */,
 				EB4D21181A380E98008DD09D /* Products */,
 				741E69E42F694988BA40C710 /* Pods.xcconfig */,
 				8FE2479B8B71477E87D30154 /* Frameworks */,
@@ -118,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4D21171A380E98008DD09D /* Puzzle 2048.app */,
-				EBEF36891A3B821000E5BB63 /* Puzzle 2048 Tests.xctest */,
+				EB4F0C521A3C1D9700F56AAB /* Puzzle 2048 Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,25 +152,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EB4D212F1A380E98008DD09D /* Puzzle 2048Tests */ = {
-			isa = PBXGroup;
-			children = (
-				EBEF36961A3B83F000E5BB63 /* GameModelTests.swift */,
-				EB4D21321A380E98008DD09D /* Puzzle_2048Tests.swift */,
-				EB4D21301A380E98008DD09D /* Supporting Files */,
-			);
-			name = "Puzzle 2048Tests";
-			path = "Swift 2048Tests";
-			sourceTree = "<group>";
-		};
-		EB4D21301A380E98008DD09D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EB4D21311A380E98008DD09D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		EB4D213C1A380FB8008DD09D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,36 +171,19 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		EBEF367B1A3B2BEF00E5BB63 /* Puzzle 2048 Tests */ = {
+		EB4F0C531A3C1D9700F56AAB /* Puzzle 2048 Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EBEF367E1A3B2BEF00E5BB63 /* Puzzle_2048_Tests.swift */,
-				EBEF367C1A3B2BEF00E5BB63 /* Supporting Files */,
+				EB4F0C561A3C1D9700F56AAB /* Puzzle_2048_Tests.swift */,
+				EB4F0C541A3C1D9700F56AAB /* Supporting Files */,
 			);
 			path = "Puzzle 2048 Tests";
 			sourceTree = "<group>";
 		};
-		EBEF367C1A3B2BEF00E5BB63 /* Supporting Files */ = {
+		EB4F0C541A3C1D9700F56AAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EBEF367D1A3B2BEF00E5BB63 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EBEF368A1A3B821100E5BB63 /* Puzzle 2048 Tests */ = {
-			isa = PBXGroup;
-			children = (
-				EBEF368D1A3B821100E5BB63 /* Puzzle_2048_Tests.swift */,
-				EBEF368B1A3B821100E5BB63 /* Supporting Files */,
-			);
-			path = "Puzzle 2048 Tests";
-			sourceTree = "<group>";
-		};
-		EBEF368B1A3B821100E5BB63 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EBEF368C1A3B821100E5BB63 /* Info.plist */,
+				EB4F0C551A3C1D9700F56AAB /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,22 +210,24 @@
 			productReference = EB4D21171A380E98008DD09D /* Puzzle 2048.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EBEF36881A3B821000E5BB63 /* Puzzle 2048 Tests */ = {
+		EB4F0C511A3C1D9700F56AAB /* Puzzle 2048 Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBEF36911A3B821100E5BB63 /* Build configuration list for PBXNativeTarget "Puzzle 2048 Tests" */;
+			buildConfigurationList = EB4F0C5A1A3C1D9700F56AAB /* Build configuration list for PBXNativeTarget "Puzzle 2048 Tests" */;
 			buildPhases = (
-				EBEF36851A3B821000E5BB63 /* Sources */,
-				EBEF36861A3B821000E5BB63 /* Frameworks */,
-				EBEF36871A3B821000E5BB63 /* Resources */,
+				8A68E5716FDF4159A333BAA8 /* Check Pods Manifest.lock */,
+				EB4F0C4E1A3C1D9700F56AAB /* Sources */,
+				EB4F0C4F1A3C1D9700F56AAB /* Frameworks */,
+				EB4F0C501A3C1D9700F56AAB /* Resources */,
+				25025F49272A492DAB41D654 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EBEF36901A3B821100E5BB63 /* PBXTargetDependency */,
+				EB4F0C591A3C1D9700F56AAB /* PBXTargetDependency */,
 			);
 			name = "Puzzle 2048 Tests";
 			productName = "Puzzle 2048 Tests";
-			productReference = EBEF36891A3B821000E5BB63 /* Puzzle 2048 Tests.xctest */;
+			productReference = EB4F0C521A3C1D9700F56AAB /* Puzzle 2048 Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -273,7 +243,7 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 62H3MNSVEL;
 					};
-					EBEF36881A3B821000E5BB63 = {
+					EB4F0C511A3C1D9700F56AAB = {
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = EB4D21161A380E98008DD09D;
 					};
@@ -293,7 +263,7 @@
 			projectRoot = "";
 			targets = (
 				EB4D21161A380E98008DD09D /* Puzzle 2048 */,
-				EBEF36881A3B821000E5BB63 /* Puzzle 2048 Tests */,
+				EB4F0C511A3C1D9700F56AAB /* Puzzle 2048 Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -309,7 +279,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBEF36871A3B821000E5BB63 /* Resources */ = {
+		EB4F0C501A3C1D9700F56AAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,7 +289,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		25025F49272A492DAB41D654 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8922686800A24B17AE416EFF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8A68E5716FDF4159A333BAA8 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,27 +361,34 @@
 				EB4D213E1A380FB8008DD09D /* ViewController.swift in Sources */,
 				EB4D211D1A380E98008DD09D /* AppDelegate.swift in Sources */,
 				EB4D21411A380FEA008DD09D /* GridView.swift in Sources */,
+				EB4F0C641A3C52BF00F56AAB /* ConstantAndPrococols.swift in Sources */,
 				EB7299F21A39EE420025B37F /* IAPHelper.swift in Sources */,
 				EB4D21431A38297E008DD09D /* TileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBEF36851A3B821000E5BB63 /* Sources */ = {
+		EB4F0C4E1A3C1D9700F56AAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBEF36991A3B85CD00E5BB63 /* GameModelTests.swift in Sources */,
-				EBEF368E1A3B821100E5BB63 /* Puzzle_2048_Tests.swift in Sources */,
+				EB4F0C601A3C1F7F00F56AAB /* ViewController.swift in Sources */,
+				EB4F0C611A3C1F7F00F56AAB /* MenuViewController.swift in Sources */,
+				EB4F0C571A3C1D9700F56AAB /* Puzzle_2048_Tests.swift in Sources */,
+				EB4F0C5E1A3C1E6900F56AAB /* TileView.swift in Sources */,
+				EB4F0C5F1A3C1F7F00F56AAB /* GridView.swift in Sources */,
+				EB4F0C651A3C530900F56AAB /* ConstantAndPrococols.swift in Sources */,
+				EB4F0C621A3C1F7F00F56AAB /* IAPHelper.swift in Sources */,
+				EB4F0C5D1A3C1E4A00F56AAB /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EBEF36901A3B821100E5BB63 /* PBXTargetDependency */ = {
+		EB4F0C591A3C1D9700F56AAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EB4D21161A380E98008DD09D /* Puzzle 2048 */;
-			targetProxy = EBEF368F1A3B821100E5BB63 /* PBXContainerItemProxy */;
+			targetProxy = EB4F0C581A3C1D9700F56AAB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -512,8 +519,9 @@
 			};
 			name = Release;
 		};
-		EBEF36921A3B821100E5BB63 /* Debug */ = {
+		EB4F0C5B1A3C1D9700F56AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 741E69E42F694988BA40C710 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -527,12 +535,14 @@
 				INFOPLIST_FILE = "Puzzle 2048 Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Swift 2048/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Puzzle 2048.app/Puzzle 2048";
 			};
 			name = Debug;
 		};
-		EBEF36931A3B821100E5BB63 /* Release */ = {
+		EB4F0C5C1A3C1D9700F56AAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 741E69E42F694988BA40C710 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -542,6 +552,7 @@
 				INFOPLIST_FILE = "Puzzle 2048 Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Swift 2048/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Puzzle 2048.app/Puzzle 2048";
 			};
 			name = Release;
@@ -567,13 +578,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBEF36911A3B821100E5BB63 /* Build configuration list for PBXNativeTarget "Puzzle 2048 Tests" */ = {
+		EB4F0C5A1A3C1D9700F56AAB /* Build configuration list for PBXNativeTarget "Puzzle 2048 Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EBEF36921A3B821100E5BB63 /* Debug */,
-				EBEF36931A3B821100E5BB63 /* Release */,
+				EB4F0C5B1A3C1D9700F56AAB /* Debug */,
+				EB4F0C5C1A3C1D9700F56AAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

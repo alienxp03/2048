@@ -9,40 +9,27 @@
 import UIKit
 
 let gridSize                = 4
-let startTiles              = 2
 let kStepModeNotification   = "kStepModeNotification"
 let skStepMoved             = "StepMoved"
 
-enum GameModeType {
-    case CLASSIC, TIME, STEP
-}
-
-protocol GameModelProtocol {
-    // Only for Step Mode
-    func stepMoved()
+class GameModel: TimeModeProtocol {
     
-    //
-    func updateHighScore()
-    func gameOver()
-    func addTileAtPosition(tile: TileView, column: Int, row: Int)
-    func moveTile(tile: TileView, oldX: NSInteger, oldY: NSInteger, newX: NSInteger, newY: NSInteger)
-    func mergeTileAtIndex(oldTile: TileView, newTile: TileView, x: NSInteger, y: NSInteger, otherTileX: NSInteger, otherTileY: NSInteger)
-}
-
-class GameModel {
-    var score = 0
+    let maxCountdownTime        = 150
+    let maxSteps                = 3
+    let startTiles              = 2
+    
+    var score                   = 0
     var gameMode: GameModeType  = .CLASSIC
-    let maxCountdownTime        = 10
-    let maxSteps                = 10
-    
+    var currentMoveStep         = 0
     var gameBoard: Array<Array<Any>>!
+    var gameState: GameState!
     
     // to communicate with the parent controller
     let delegate: GameModelProtocol!
     
-    init() {
-        
-    }
+    // For timer mode
+    var countdownTimer: NSTimer!
+    var currentCountdownTime: Int!
     
     init(delegate: GameModelProtocol) {
         self.delegate = delegate
@@ -60,6 +47,8 @@ class GameModel {
         }
         
         spawnStartTiles()
+        
+        gameState = .RUNNING
     }
     
     /*
@@ -129,7 +118,7 @@ class GameModel {
         Move tile based on the direction
     */
     
-    func move(direction: CGPoint) {
+    func move(direction: CGPoint) -> Bool {
         var movedTilesThisRound = false
         var currentX:NSInteger = 0
         var currentY:NSInteger = 0
@@ -218,9 +207,13 @@ class GameModel {
         }
         
         if movedTilesThisRound {
+            currentMoveStep--
             delegate.stepMoved()
             nextRound()
+            return true
         }
+        
+        return false
     }
     
     /*
@@ -272,6 +265,15 @@ class GameModel {
     Check if user still have an possible. If there isn't one, it means game over
     */
     func movePossible() -> Bool {
+        
+        // Only for step mode
+        if gameMode == .STEP {
+            if currentMoveStep <= 0 {
+                gameState = .GAMEOVER
+                return false
+            }
+        }
+        
         for var i = 0; i < gridSize; i++ {
             for var j = 0; j < gridSize; j++ {
                 var tile = gameBoard[i][j] as? TileView
@@ -295,7 +297,25 @@ class GameModel {
             }
         }
         
+        gameState = .GAMEOVER
         return false
+    }
+    
+    /*
+        Get gameBoard size, all tiles that are not null
+    */
+    func gameBoardSize() -> Int {
+        var size = 0
+        
+        for var i = 0; i < gridSize; i++ {
+            for var j = 0; j < gridSize; j++ {
+                if let tile = gameBoard[i][j] as? TileView {
+                    size++
+                }
+            }
+        }
+        
+        return size
     }
     
     /*
@@ -323,6 +343,76 @@ class GameModel {
             delegate.updateHighScore()
         }
         
+        gameState = .GAMEOVER
         delegate.gameOver()
+    }
+    
+    // MARK: Just for fun
+    
+    /*
+        Move randomly
+        // TODO: Maybe can try to implement AI
+    */
+    func randomMove(){
+        let possibleMove = [CGPoint(x: -1, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: -1), CGPoint(x: 0, y: 1)] as [CGPoint]
+        
+        for i in 0...(possibleMove.count-1) {
+            if move(possibleMove[i]) {
+                break
+            }
+        }
+    }
+    
+    
+    /*
+        Print the game board to the console
+    */
+    func displayGameBoardToConsole() {
+        for var i = 0; i < gridSize; i++ {
+            for var j = 0; j < gridSize; j++ {
+                if let tile = gameBoard[i][j] as? TileView {
+                    print(" \(tile.value) ")
+                } else {
+                    print(" 0 ")
+                }
+            }
+            println()
+        }
+//        println("Board \(gameBoardSize())")
+    }
+    
+    
+    // MARK: TimeModeProtocol
+    
+    func timeModeStartGame() {
+        currentCountdownTime = maxCountdownTime
+        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+    }
+    
+    func timeModePauseGame() {
+        countdownTimer.invalidate()
+    }
+    
+    func timeModeResumeGame(time: Int) {
+        currentCountdownTime = time
+        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+    }
+    
+    func timeModeGameOver() {
+        
+    }
+    
+    // MARK:
+    
+    @objc func countdown() {
+        currentCountdownTime!--
+        delegate.updateHighScore()
+
+        if currentCountdownTime <= 0 {
+            countdownTimer.invalidate()
+            endGame()
+        }
+        
+        println("countdown \(currentCountdownTime)")
     }
 }

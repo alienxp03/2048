@@ -17,18 +17,15 @@ class TileView: UIView {
     var mergedThisRound: Bool
 
     override func drawRect(rect: CGRect) {
-        value = (Int(arc4random_uniform(2)) + 1) * 2
-        textLabel.textAlignment = .Center
-        textLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 32)
-        
-        addSubview(textLabel)
-
         updateValueDisplay()
+        addSubview(textLabel)
     }
     
     override init() {
         textLabel = UILabel(frame: CGRectMake(0, 0, tileSize, tileSize))
-        value = 0
+        value = (Int(arc4random_uniform(2)) + 1) * 2
+        textLabel.textAlignment = .Center
+        textLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 32)
         mergedThisRound = false
         super.init(frame: CGRectMake(0, 0, tileSize, tileSize))
     }
