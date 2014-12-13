@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameModel: TimeModeProtocol {
+class GameModel: FunAndTimeModeProtocol {
     
     let maxCountdownTime        = 150
     let maxSteps                = 3
@@ -37,6 +37,10 @@ class GameModel: TimeModeProtocol {
         spawnStartTiles()
         
         gameState = .RUNNING
+        
+        if gameMode == .FUN {
+            funAndTimeModeStartGame()
+        }
     }
     
     /*
@@ -56,10 +60,9 @@ class GameModel: TimeModeProtocol {
     
     
     /*
-        Add/create a tile at given position
+        Create and add a tile at given position
     */
-    func addTileAtColumn(column: NSInteger, row: NSInteger) {
-        var tile = TileView()
+    func addTileAtColumn(tile: TileView, column: NSInteger, row: NSInteger) {
         gameBoard[column][row] = tile
         delegate.addTileAtPosition(tile, column: column, row: row)
     }
@@ -74,7 +77,7 @@ class GameModel: TimeModeProtocol {
             var randomRow = Int(arc4random_uniform(UInt32(skGridSize)))
             var positionFree = (gameBoard[randomColumn][randomRow] as? NSNull == NSNull())
             if positionFree {
-                addTileAtColumn(randomColumn, row: randomRow)
+                addTileAtColumn(TileView(), column: randomColumn, row: randomRow)
                 spawned = true
             }
         }
@@ -345,24 +348,9 @@ class GameModel: TimeModeProtocol {
             delegate.updateHighScore()
         }
         
+        score = 0
         gameState = .GAMEOVER
         delegate.gameOver()
-    }
-    
-    // MARK: Just for fun
-    
-    /*
-        Move randomly
-        // TODO: Maybe can try to implement AI
-    */
-    func randomMove(){
-        let possibleMove = [CGPoint(x: -1, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: -1), CGPoint(x: 0, y: 1)] as [CGPoint]
-        
-        for i in 0...(possibleMove.count-1) {
-            if move(possibleMove[i]) {
-                break
-            }
-        }
     }
     
     
@@ -380,26 +368,38 @@ class GameModel: TimeModeProtocol {
             }
             println()
         }
+        println()
     }
-    
     
     // MARK: TimeModeProtocol
     
-    func timeModeStartGame() {
-        currentCountdownTime = maxCountdownTime
-        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+    func funAndTimeModeStartGame() {
+        
+        if gameMode == .FUN {
+            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "randomMove", userInfo: nil, repeats: true)
+        } else if gameMode == .TIME {
+            currentCountdownTime = maxCountdownTime
+            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        }
     }
     
-    func timeModePauseGame() {
+    func funAndTimeModePauseGame() {
+        gameState = .PAUSE
         countdownTimer.invalidate()
     }
     
-    func timeModeResumeGame(time: Int) {
-        currentCountdownTime = time
-        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+    func funAndTimeModeResumeGame(time: Int) {
+        gameState = .RUNNING
+        
+        if gameMode == .FUN {
+            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "randomMove", userInfo: nil, repeats: true)
+        } else if gameMode == .TIME {
+            currentCountdownTime = time
+            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        }
     }
     
-    func timeModeGameOver() {
+    func funAndTimeModeGameOver() {
         
     }
     
@@ -413,7 +413,22 @@ class GameModel: TimeModeProtocol {
             countdownTimer.invalidate()
             endGame()
         }
+    }
+    
+    
+    // MARK: Just for fun
+    
+    /*
+    Move randomly
+    // TODO: Maybe can try to implement AI
+    */
+    @objc func randomMove(){
+        let possibleMove = [CGPoint(x: -1, y: 0), CGPoint(x: 1, y: 0), CGPoint(x: 0, y: -1), CGPoint(x: 0, y: 1)] as [CGPoint]
         
-        println("countdown \(currentCountdownTime)")
+        for i in 0...(possibleMove.count-1) {
+            if move(possibleMove[Int(arc4random_uniform(4) + 0)]) {
+                break
+            }
+        }
     }
 }

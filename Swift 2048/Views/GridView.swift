@@ -113,6 +113,8 @@ class GridView: UIView {
         var otherTilePosition = positionForColumn(otherTileX, row: otherTileY)
         
         UIView.animateWithDuration(0.2, animations: {
+                oldTile.frame = CGRectMake(otherTilePosition.x, otherTilePosition.y, newTile.frame.width, newTile.frame.height)
+                oldTile.alpha = 0
                 newTile.frame = CGRectMake(otherTilePosition.x, otherTilePosition.y, newTile.frame.width, newTile.frame.height)
                 newTile.updateValueDisplay()
             }, completion: {

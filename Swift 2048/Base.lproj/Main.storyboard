@@ -237,7 +237,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H1-Y9-AnG">
-                                <rect key="frame" x="59" y="85" width="202" height="50"/>
+                                <rect key="frame" x="59" y="97" width="202" height="50"/>
                                 <color key="backgroundColor" red="0.67084160052910047" green="0.59703066951813788" blue="0.43863592967050002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="KEEP GOING">
@@ -254,7 +254,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZp-Yq-YUx">
-                                <rect key="frame" x="59" y="160" width="202" height="50"/>
+                                <rect key="frame" x="59" y="247" width="202" height="50"/>
                                 <color key="backgroundColor" red="0.67084160049999997" green="0.59703066950000006" blue="0.43863592969999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="CLASSIC MODE">
@@ -271,7 +271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yI-vg-yST">
-                                <rect key="frame" x="59" y="235" width="202" height="50"/>
+                                <rect key="frame" x="59" y="322" width="202" height="50"/>
                                 <color key="backgroundColor" red="0.67084160049999997" green="0.59703066950000006" blue="0.43863592969999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="TIME MODE">
@@ -288,7 +288,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LWG-VL-fPG">
-                                <rect key="frame" x="59" y="310" width="202" height="50"/>
+                                <rect key="frame" x="59" y="397" width="202" height="50"/>
                                 <color key="backgroundColor" red="0.67084160049999997" green="0.59703066950000006" blue="0.43863592969999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="STEP MODE">
@@ -302,6 +302,23 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="changeGameMode:" destination="6kp-2a-le3" eventType="touchUpInside" id="zmL-kF-mMM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uwJ-5l-DLs">
+                                <rect key="frame" x="59" y="172" width="202" height="50"/>
+                                <color key="backgroundColor" red="0.67084160049999997" green="0.59703066950000006" blue="0.43863592969999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="FUN MODE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changeGameMode:" destination="6kp-2a-le3" eventType="touchUpInside" id="b6j-iA-uxb"/>
                                 </connections>
                             </button>
                         </subviews>

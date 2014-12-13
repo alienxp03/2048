@@ -27,6 +27,18 @@ class TileView: UIView {
         updateValueDisplay()
         addSubview(textLabel)
     }
+    
+    init(value: Int) {
+        textLabel = UILabel(frame: CGRectMake(0, 0, tileSize, tileSize))
+        self.value = value
+        textLabel.textAlignment = .Center
+        textLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 32)
+        mergedThisRound = false
+        super.init(frame: CGRectMake(0, 0, tileSize, tileSize))
+        
+        updateValueDisplay()
+        addSubview(textLabel)
+    }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

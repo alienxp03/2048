@@ -80,7 +80,11 @@ class MenuViewController: UIViewController {
                     
                     alertView.show()
                 }
-            default: break
+            case "FUN MODE":
+                self.delegate.changeGameMode(.FUN)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            default:
+                break
         }
     }
 }

@@ -17,7 +17,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
     var isModeUnlocked: Bool?
     var gameModel: GameModel!
     
-    var timeModeDelegate: TimeModeProtocol!
+    var timeModeDelegate: FunAndTimeModeProtocol!
 
     @IBOutlet var gridView: GridView!
     @IBOutlet var score: UILabel!
@@ -48,17 +48,21 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        if self.gameModel.gameMode == .TIME {
+        if self.gameModel.gameMode == .FUN {
+            timeModeDelegate.funAndTimeModePauseGame()
+        } else if self.gameModel.gameMode == .TIME {
             // Pause the timer for game mode, if user is going to other view
             continueCountdownTime = gameModel.currentCountdownTime
-            timeModeDelegate.timeModePauseGame()
+            timeModeDelegate.funAndTimeModePauseGame()
         }
     }
     
     override func viewWillAppear(animated: Bool) {
-        if self.gameModel.gameMode == .TIME && gameModel.currentCountdownTime != gameModel.maxCountdownTime {
+        if gameModel.gameMode == GameModeType.FUN && gameModel.gameState == GameState.PAUSE {
+            timeModeDelegate.funAndTimeModeResumeGame(0)
+        } else if gameModel.gameMode == .TIME && gameModel.currentCountdownTime != gameModel.maxCountdownTime {
             // Resume the timer for game mode, if user is coming back from another view
-            timeModeDelegate.timeModeResumeGame(continueCountdownTime)
+            timeModeDelegate.funAndTimeModeResumeGame(continueCountdownTime)
         }
     }
     
@@ -99,19 +103,19 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
     }
     
     func swipeLeft() {
-        moveTile(CGPoint(x: -1, y: 0))
+        moveTile(MoveLeft)
     }
 
     func swipeRight() {
-        moveTile(CGPoint(x: 1, y: 0))
+        moveTile(MoveRight)
     }
     
     func swipeUp() {
-        moveTile(CGPoint(x: 0, y: -1))
+        moveTile(MoveUp)
     }
     
     func swipeDown() {
-        moveTile(CGPoint(x: 0, y: 1))
+        moveTile(MoveDown)
     }
     
     func updateScore() {
@@ -129,7 +133,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
     }
     
     @IBAction func restartGame(sender: AnyObject) {
-        timeModeDelegate.timeModePauseGame()
+        timeModeDelegate.funAndTimeModePauseGame()
         continueCountdownTime = gameModel.currentCountdownTime
         
         let alertView = SIAlertView(title: "New Game", andMessage: "Current score will be erased! Do you want to restart the game?")
@@ -138,9 +142,11 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         alertView.addButtonWithTitle("Cancel", type: .Cancel, handler: {
             (SIAlertViewHandler) in
             
-            if self.gameModel.gameMode == .TIME {
+            if self.gameModel.gameMode == .FUN {
+                self.timeModeDelegate.funAndTimeModeResumeGame(0)
+            } else if self.gameModel.gameMode == .TIME {
                 // Resume countdown
-                self.timeModeDelegate.timeModeResumeGame(self.continueCountdownTime)
+                self.timeModeDelegate.funAndTimeModeResumeGame(self.continueCountdownTime)
             }
             
         })
@@ -148,8 +154,10 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         alertView.addButtonWithTitle("New Game", type: .Destructive, handler: {
             (SIAlertViewHandler) in
                 self.resetGame()
-                if self.gameModel.gameMode == .TIME {
-                    self.timeModeDelegate.timeModeStartGame()
+                if self.gameModel.gameMode == .FUN {
+                    self.timeModeDelegate.funAndTimeModePauseGame()
+                } else if self.gameModel.gameMode == .TIME {
+                    self.timeModeDelegate.funAndTimeModeStartGame()
                 }
         })
         
@@ -201,10 +209,13 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         case .TIME:
             modeLabel.text = "Time Mode"
             highScoreLabel.text = "Time"
-            timeModeDelegate.timeModeStartGame()
+            timeModeDelegate.funAndTimeModeStartGame()
         case .STEP:
             modeLabel.text = "Step Mode"
             highScoreLabel.text = "Step"
+        case .FUN:
+            modeLabel.text = "Fun Mode"
+            highScoreLabel.text = "Best"
         }
         
         updateHighScore()
@@ -230,6 +241,17 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         Reset the game state using the game model delegate
     */
     func resetGame() {
+        if let recognizers = gridView.gestureRecognizers as? [UIGestureRecognizer] {
+            for recognizer in recognizers {
+                gridView.removeGestureRecognizer(recognizer)
+            }
+        }
+        
+        // User can't move in Fun mode
+        if gameModel.gameMode !=  .FUN {
+            setupSwipeGestures()
+        }
+        
         self.gridView.setNeedsDisplay()
         
         score.text = "0"
@@ -255,7 +277,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
     func updateHighScore() {
         
         switch gameModel.gameMode {
-        case .CLASSIC:
+        case .CLASSIC, .FUN:
             var highestScore =  NSUserDefaults.standardUserDefaults().objectForKey("highScore") as? NSInteger
             
             if highestScore == nil {
