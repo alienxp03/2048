@@ -374,6 +374,7 @@ class GameModel: FunAndTimeModeProtocol {
     // MARK: TimeModeProtocol
     
     func funAndTimeModeStartGame() {
+        countdownTimer?.invalidate()
         
         if gameMode == .FUN {
             countdownTimer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "randomMove", userInfo: nil, repeats: true)
