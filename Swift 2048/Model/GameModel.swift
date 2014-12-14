@@ -11,7 +11,7 @@ import UIKit
 class GameModel: FunAndTimeModeProtocol {
     
     let maxCountdownTime        = 150
-    let maxSteps                = 3
+    let maxSteps                = 100
     let startTiles              = 2
     
     var score                   = 0
@@ -386,7 +386,7 @@ class GameModel: FunAndTimeModeProtocol {
     
     func funAndTimeModePauseGame() {
         gameState = .PAUSE
-        countdownTimer.invalidate()
+        countdownTimer?.invalidate()
     }
     
     func funAndTimeModeResumeGame(time: Int) {

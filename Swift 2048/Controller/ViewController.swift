@@ -201,6 +201,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
     */
     func changeGameMode(mode: GameModeType) {
         countdownTimer?.invalidate()
+        gameModel.gameMode = mode
         
         switch mode {
         case .CLASSIC:
@@ -254,6 +255,7 @@ class ViewController: UIViewController, GameModeProtocol, GameModelProtocol {
         
         self.gridView.setNeedsDisplay()
         
+        gameModel.score = 0
         score.text = "0"
         gameModel.currentMoveStep = gameModel.maxSteps
         gameModel.currentCountdownTime = gameModel.maxCountdownTime
